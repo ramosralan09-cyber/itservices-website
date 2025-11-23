@@ -2,16 +2,16 @@ import { Metadata } from 'next';
 import { HomeContent } from '@/components/home/HomeContent';
 
 export const metadata: Metadata = {
-  title: 'IT Services & Security | Redes, CCTV, Control de Acceso en Puerto Rico',
+  title: 'Cámaras de Seguridad, Redes y Control de Acceso en Puerto Rico | IT Services & Security',
   description:
-    'Expertos en infraestructura tecnológica, sistemas de seguridad CCTV 4K, control de acceso biométrico y consultoría IT. 120+ proyectos en Puerto Rico. Mayagüez y toda la isla.',
+    'Instalación de cámaras de seguridad CCTV 4K, redes empresariales, control de acceso y soporte técnico para negocios en Puerto Rico. Equipo especializado con más de 12 años de experiencia en Mayagüez y toda la isla.',
   keywords:
-    'IT Puerto Rico, cámaras seguridad PR, redes empresariales, CCTV Mayagüez, control acceso, fibra óptica, consultoría IT',
+    'cámaras de seguridad Puerto Rico, instalación CCTV Puerto Rico, instalación cámaras Mayagüez, redes empresariales Puerto Rico, técnicos de seguridad para negocios, control de acceso Puerto Rico, sistemas de videovigilancia PR, IT Services & Security, soporte técnico IT Puerto Rico, cámaras seguridad PR',
   openGraph: {
-    title: 'IT Services & Security - Tecnología y Seguridad en Puerto Rico',
+    title: 'IT Services & Security - Cámaras de Seguridad y Redes en Puerto Rico',
     description:
-      'Infraestructura de redes, CCTV 4K, control de acceso y consultoría IT. Protegiendo empresas en Puerto Rico desde hace 12+ años.',
-    url: 'https://itservicespr.com',
+      'Soluciones profesionales de cámaras de seguridad, redes empresariales y control de acceso para negocios en Puerto Rico. Infraestructura tecnológica completa y soporte técnico especializado.',
+    url: 'https://www.itservicespr.com',
     siteName: 'IT Services & Security',
     locale: 'es_PR',
     type: 'website',
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IT Services & Security | Tecnología y Seguridad PR',
+    title: 'IT Services & Security | Cámaras de Seguridad y Redes en Puerto Rico',
     description:
-      'Expertos en infraestructura, CCTV y control de acceso en Puerto Rico',
+      'Instalación de CCTV, redes empresariales y control de acceso para negocios en Puerto Rico.',
     images: ['/images/og-image.jpg'],
   },
   robots: {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://itservicespr.com',
+    canonical: 'https://www.itservicespr.com',
   },
 };
 
