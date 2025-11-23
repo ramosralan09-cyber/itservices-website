@@ -1,0 +1,35 @@
+═══════════════════════════════════════════════════════════════
+  ITSS LOGO UPLOAD REQUIRED
+═══════════════════════════════════════════════════════════════
+
+Upload these 2 logo files to this folder:
+  /public/images/logos/
+
+Required Files:
+───────────────────────────────────────────────────────────────
+
+1. itss-logo.png
+   - Your horizontal logo (1280×161 pixels or similar)
+   - ~69KB size
+   - Light/white version for dark backgrounds
+   - PNG format with transparent background
+   - Will appear in header and footer
+
+2. itss-favicon.png
+   - Square icon version (510×512 pixels)
+   - ~108KB size
+   - PNG or ICO format
+   - For browser tab icon
+
+Important Notes:
+───────────────────────────────────────────────────────────────
+
+✓ Logo MUST be visible on dark backgrounds
+✓ Use white/light colored logo elements
+✓ High resolution for crisp display
+✓ File names must match exactly
+✓ PNG format (NOT JPG) for transparency support
+
+After uploading, refresh your browser to see the logos.
+
+═══════════════════════════════════════════════════════════════

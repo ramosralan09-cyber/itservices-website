@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 29% 7%;
+    --foreground: 0 0% 100%;
+    --card: 222 25% 11%;
+    --card-foreground: 0 0% 100%;
+    --popover: 222 25% 11%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 217 100% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 100% 63%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 15% 15%;
+    --muted-foreground: 210 11% 62%;
+    --accent: 24 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 11% 42%;
+    --input: 222 15% 15%;
+    --ring: 217 100% 52%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-charcoal text-white font-sans antialiased;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-white;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+    line-height: 1.2;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+    line-height: 1.2;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+    line-height: 1.3;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md bg-navy/80 border border-white/10;
+  }
+
+  .card-elevated {
+    @apply bg-slate border border-gray-400/20 rounded-2xl shadow-card;
+    transition: all 0.3s ease;
+  }
+
+  .card-elevated:hover {
+    @apply shadow-card-hover transform -translate-y-1;
+  }
+}
+
+body {
+  background-color: #0f172a;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
