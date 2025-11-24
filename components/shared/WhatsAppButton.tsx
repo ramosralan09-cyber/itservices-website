@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send } from 'lucide-react';
 import { trackConversion } from '@/lib/analytics';
+import { gtagEvent } from '@/lib/gtag';
 
 export function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,9 +35,22 @@ export function WhatsAppButton() {
   }, []);
 
   const sendMessage = (text?: string) => {
-    const messageToSend = text || message || 'Hola, necesito información sobre sus servicios';
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageToSend)}`;
+    const messageToSend =
+      text || message || 'Hola, necesito información sobre sus servicios';
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      messageToSend,
+    )}`;
+
+    // Evento interno que ya tenías (puede usarse para otros sistemas)
     trackConversion('whatsapp_click', 0);
+
+    // Evento para Google Analytics 4
+    gtagEvent('generate_lead', {
+      method: 'whatsapp',
+      location: 'floating_button',
+      quick_message: Boolean(text), // true si usó respuesta rápida, false si escribió
+    });
+
     window.open(url, '_blank');
     setIsOpen(false);
     setMessage('');
@@ -51,14 +65,14 @@ export function WhatsAppButton() {
           scale: 1,
           opacity: 1,
           right: sidebarOpen ? 'auto' : '1.5rem',
-          left: sidebarOpen ? '1.5rem' : 'auto'
+          left: sidebarOpen ? '1.5rem' : 'auto',
         }}
         transition={{
           delay: 1,
           type: 'spring',
           stiffness: 200,
           right: { duration: 0.3 },
-          left: { duration: 0.3 }
+          left: { duration: 0.3 },
         }}
       >
         <motion.div
@@ -125,16 +139,16 @@ export function WhatsAppButton() {
               transition={{ delay: 2 }}
             >
               <p className="text-white text-sm font-medium">¿Necesitas ayuda?</p>
-              <div className={`absolute top-1/2 -translate-y-1/2 ${
-                sidebarOpen
-                  ? 'left-0 -translate-x-full'
-                  : 'right-0 translate-x-full'
-              }`}>
-                <div className={`w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent ${
-                  sidebarOpen
-                    ? 'border-r-8 border-r-slate'
-                    : 'border-l-8 border-l-slate'
-                }`} />
+              <div
+                className={`absolute top-1/2 -translate-y-1/2 ${
+                  sidebarOpen ? 'left-0 -translate-x-full' : 'right-0 translate-x-full'
+                }`}
+              >
+                <div
+                  className={`w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent ${
+                    sidebarOpen ? 'border-r-8 border-r-slate' : 'border-l-8 border-l-slate'
+                  }`}
+                />
               </div>
             </motion.div>
           )}
@@ -177,9 +191,7 @@ export function WhatsAppButton() {
                 <p className="text-white text-sm mb-2">
                   👋 ¡Hola! Bienvenido a <strong>IT Services & Security</strong>
                 </p>
-                <p className="text-gray-400 text-xs">
-                  ¿En qué podemos ayudarte hoy?
-                </p>
+                <p className="text-gray-400 text-xs">¿En qué podemos ayudarte hoy?</p>
               </motion.div>
 
               <div className="space-y-2 mb-4">
