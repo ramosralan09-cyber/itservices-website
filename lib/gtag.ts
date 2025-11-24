@@ -14,5 +14,14 @@ export function gtagEvent(
   const w = window as any;
   if (!w.gtag) return;
 
-  w.gtag('event', action, params);
+  // Si entras con ?testga=1 en la URL, marcamos el evento como debug
+  const isDebug = window.location.search.includes('testga=1');
+
+  const eventParams = {
+    ...(params || {}),
+    ...(isDebug ? { debug_mode: true } : {}),
+  };
+
+  w.gtag('event', action, eventParams);
 }
+
