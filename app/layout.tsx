@@ -20,6 +20,9 @@ const inter = Inter({
 
 const site = 'https://itservicespr.com';
 
+// Hardcode GA4 ID (para asegurar funcionalidad inmediata)
+const GA_MEASUREMENT_ID = 'G-TM2E7G9F4';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://itservicespr.com'),
   title: {
@@ -54,7 +57,8 @@ export const metadata: Metadata = {
     url: 'https://itservicespr.com',
     siteName: 'IT Services & Security PR',
     title: 'IT Services & Security PR | Soluciones Tecnológicas en Puerto Rico',
-    description: 'Expertos en redes, CCTV, control de acceso y consultoría IT. Servicio profesional en toda la isla.',
+    description:
+      'Expertos en redes, CCTV, control de acceso y consultoría IT. Servicio profesional en toda la isla.',
     images: [
       {
         url: `${site}/images/logo512.png`,
@@ -108,30 +112,32 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/images/logo512.png" />
         <StructuredData />
       </head>
-      <body className="min-h-screen flex flex-col">
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <Script
-              strategy="afterInteractive"
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-            />
-            <Script
-              id="google-analytics"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
-                    page_path: window.location.pathname,
-                  });
-                `,
-              }}
-            />
-          </>
-        )}
 
+      <body className="min-h-screen flex flex-col">
+
+        {/* Google Analytics (forzado con ID hardcoded) */}
+        <>
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          />
+          <Script
+            id="google-analytics"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+            }}
+          />
+        </>
+
+        {/* Meta Pixel – no cambiar */}
         {process.env.NEXT_PUBLIC_META_PIXEL_ID && (
           <>
             <Script
