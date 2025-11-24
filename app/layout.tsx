@@ -21,7 +21,7 @@ const inter = Inter({
 const site = 'https://itservicespr.com';
 
 // Hardcode GA4 ID (para asegurar funcionalidad inmediata)
-const GA_MEASUREMENT_ID = 'G-TM2E7G9F4';
+const GA_MEASUREMENT_ID = 'G-TM2E7GF9F4';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://itservicespr.com'),
