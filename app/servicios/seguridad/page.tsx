@@ -1,42 +1,52 @@
 import SeguridadClient from './SeguridadClient';
+import type { Metadata } from 'next';
 
-export const metadata = {
-  title: 'Instalación de Cámaras, Control de Acceso y Seguridad en Puerto Rico | IT Services & Security',
+export const metadata: Metadata = {
+  title: 'Cámaras de Seguridad y Control de Acceso en Puerto Rico | Instalación Profesional',
   description:
-    'Instalación profesional de cámaras de seguridad, imanes de seguridad, control de acceso, teleentry y redes empresariales en Puerto Rico. Soluciones modernas, confiables y personalizadas en toda la isla.',
+    'Instalamos cámaras de seguridad, CCTV, control de acceso, imanes, TeleEntry y soluciones de vigilancia para negocios en Puerto Rico. Sistemas modernos, confiables y diseñados para proteger tu empresa las 24 horas.',
   keywords: [
     'cámaras de seguridad Puerto Rico',
-    'instalación de CCTV PR',
-    'control de acceso Puerto Rico',
+    'cámaras para negocios PR',
+    'instalación de CCTV Puerto Rico',
+    'control de acceso PR',
+    'TeleEntry Puerto Rico',
     'imanes de seguridad',
-    'teleentry Puerto Rico',
-    'redes empresariales PR',
-    'Hikvision Puerto Rico',
+    'cámaras solares 4G',
     'IT Services & Security',
-    'cámaras solares 4G PR',
+    'seguridad comercial Puerto Rico',
+    'sistemas de vigilancia PR',
   ],
+  alternates: {
+    canonical: 'https://itservicespr.com/servicios/seguridad',
+  },
   openGraph: {
-    title:
-      'Instalación de Cámaras, Control de Acceso y Seguridad en Puerto Rico | IT Services & Security',
+    title: 'Cámaras de Seguridad y Control de Acceso para Negocios en Puerto Rico',
     description:
-      'Expertos en cámaras de seguridad, control de acceso, imanes, teleentry y redes empresariales para negocios en toda la isla.',
+      'Soluciones profesionales de seguridad para comercios, oficinas y empresas en toda la isla. CCTV, acceso controlado, TeleEntry e imanes de seguridad.',
     url: 'https://itservicespr.com/servicios/seguridad',
+    siteName: 'IT Services & Security',
+    locale: 'es_PR',
+    type: 'website',
     images: [
       {
         url: 'https://itservicespr.com/images/logo512.png',
         width: 1200,
         height: 630,
-        alt: 'IT Services & Security – Cámaras, Control de Acceso y Seguridad',
+        alt: 'IT Services & Security – Cámaras y Control de Acceso en Puerto Rico',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title:
-      'Instalación de Sistemas de Seguridad en Puerto Rico | Cámaras, Control de Acceso y Redes',
+    title: 'Cámaras de Seguridad y Control de Acceso | IT Services & Security',
     description:
-      'Servicios profesionales de seguridad: cámaras, imanes, teleentry, CCTV y redes empresariales.',
+      'Instalación profesional de cámaras de seguridad, control de acceso, TeleEntry e imanes para negocios en Puerto Rico.',
     images: ['https://itservicespr.com/images/logo512.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
