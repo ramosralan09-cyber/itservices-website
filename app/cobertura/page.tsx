@@ -1,64 +1,105 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, Phone, MessageCircle, CheckCircle } from 'lucide-react';
+import { MapPin, MessageCircle, CheckCircle } from 'lucide-react';
 import { WHATSAPP_URL } from '@/lib/whatsapp';
 import CoverageMap from '@/components/shared/CoverageMap';
+
+export const metadata = {
+  title:
+    'Cobertura en Puerto Rico | Cámaras de Seguridad, Redes y Control de Acceso | IT Services & Security',
+  description:
+    'Instalación profesional de cámaras de seguridad, redes empresariales, control de acceso y sistemas de seguridad en toda Puerto Rico. Cobertura en Mayagüez, Aguadilla, San Juan, Ponce y más municipios.',
+  keywords: [
+    'cámaras de seguridad Puerto Rico',
+    'cámaras de seguridad Mayagüez',
+    'cámaras de seguridad Aguadilla',
+    'cámaras de seguridad San Juan',
+    'instalación de cámaras PR',
+    'control de acceso Puerto Rico',
+    'redes empresariales Puerto Rico',
+    'servicios de seguridad en toda la isla',
+    'IT Services & Security cobertura',
+  ],
+  openGraph: {
+    title:
+      'Cobertura en Puerto Rico | Servicios de Seguridad y Redes | IT Services & Security',
+    description:
+      'Brindamos servicios de seguridad, cámaras CCTV, redes empresariales y control de acceso en toda Puerto Rico: región oeste, norte, sur, este, centro y área metro.',
+    url: 'https://itservicespr.com/cobertura',
+    siteName: 'IT Services & Security',
+    locale: 'es_PR',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://itservicespr.com/cobertura',
+  },
+};
 
 export default function CoberturaPage() {
   const zones = [
     {
       color: 'bg-green-600',
       name: 'Región Oeste',
-      areas: 'Mayagüez, Aguadilla, Cabo Rojo, Rincón, Añasco, Aguada, San Sebastián, Moca, Isabela',
+      areas:
+        'Mayagüez, Aguadilla, Cabo Rojo, Rincón, Añasco, Aguada, San Sebastián, Moca, Isabela',
       bgColor: 'bg-green-50',
-      borderColor: 'border-green-300'
+      borderColor: 'border-green-300',
     },
     {
       color: 'bg-blue-600',
       name: 'Región Norte',
-      areas: 'Arecibo, Manatí, Barceloneta, Vega Baja, Vega Alta, Dorado, Camuy, Hatillo',
+      areas:
+        'Arecibo, Manatí, Barceloneta, Vega Baja, Vega Alta, Dorado, Camuy, Hatillo',
       bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-300'
+      borderColor: 'border-blue-300',
     },
     {
       color: 'bg-yellow-600',
       name: 'Región Central',
-      areas: 'Utuado, Adjuntas, Jayuya, Orocovis, Barranquitas, Comerío, Aibonito, Corozal',
+      areas:
+        'Utuado, Adjuntas, Jayuya, Orocovis, Barranquitas, Comerío, Aibonito, Corozal',
       bgColor: 'bg-yellow-50',
-      borderColor: 'border-yellow-300'
+      borderColor: 'border-yellow-300',
     },
     {
       color: 'bg-purple-600',
       name: 'Área Metropolitana',
-      areas: 'San Juan, Bayamón, Carolina, Guaynabo, Trujillo Alto, Cataño, Canóvanas, Loíza',
+      areas:
+        'San Juan, Bayamón, Carolina, Guaynabo, Trujillo Alto, Cataño, Canóvanas, Loíza',
       bgColor: 'bg-purple-50',
-      borderColor: 'border-purple-300'
+      borderColor: 'border-purple-300',
     },
     {
       color: 'bg-violet-600',
       name: 'Región Sur',
-      areas: 'Ponce, Yauco, Guayanilla, Peñuelas, Guánica, Juana Díaz, Santa Isabel, Salinas, Coamo',
+      areas:
+        'Ponce, Yauco, Guayanilla, Peñuelas, Guánica, Juana Díaz, Santa Isabel, Salinas, Coamo',
       bgColor: 'bg-violet-50',
-      borderColor: 'border-violet-300'
+      borderColor: 'border-violet-300',
     },
     {
       color: 'bg-pink-600',
       name: 'Región Este',
-      areas: 'Caguas, Humacao, Fajardo, Gurabo, Juncos, Las Piedras, Ceiba, Naguabo, Yabucoa',
+      areas:
+        'Caguas, Humacao, Fajardo, Gurabo, Juncos, Las Piedras, Ceiba, Naguabo, Yabucoa',
       bgColor: 'bg-pink-50',
-      borderColor: 'border-pink-300'
-    }
+      borderColor: 'border-pink-300',
+    },
   ];
 
   return (
     <div className="min-h-screen bg-charcoal">
       <section className="pt-32 pb-16 md:pb-24 bg-gradient-to-b from-deepBlue to-charcoal relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+              backgroundSize: '40px 40px',
+            }}
+          ></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
@@ -75,8 +116,9 @@ export default function CoberturaPage() {
               Áreas de Cobertura en Puerto Rico
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-              Brindamos servicios de seguridad, redes y tecnología en toda la isla.
-              Consulta si tu área está dentro de nuestra zona de cobertura.
+              Brindamos servicios de seguridad, cámaras de vigilancia, control de
+              acceso y redes empresariales en toda la isla. Consulta si tu área
+              está dentro de nuestra zona de cobertura.
             </p>
           </motion.div>
 
@@ -113,10 +155,14 @@ export default function CoberturaPage() {
                   transition={{ delay: index * 0.1 }}
                   className={`flex items-start gap-3 p-4 ${zone.bgColor} rounded-lg border-2 ${zone.borderColor} hover:shadow-md transition-shadow`}
                 >
-                  <div className={`w-5 h-5 rounded-full ${zone.color} mt-1 flex-shrink-0 shadow-sm`}></div>
+                  <div
+                    className={`w-5 h-5 rounded-full ${zone.color} mt-1 flex-shrink-0 shadow-sm`}
+                  ></div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">{zone.name}</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed">{zone.areas}</p>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      {zone.areas}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -137,7 +183,8 @@ export default function CoberturaPage() {
               ¿Tu municipio no aparece en el mapa?
             </h3>
             <p className="text-lg mb-8 text-blue-100 max-w-2xl mx-auto">
-              Contáctanos. Evaluamos proyectos en toda la isla según el alcance del servicio.
+              Contáctanos. Evaluamos proyectos en toda la isla según el alcance
+              del servicio.
             </p>
             <div className="flex justify-center">
               <motion.a
@@ -169,10 +216,26 @@ export default function CoberturaPage() {
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
               {[
-                { name: 'Infosys Aguadilla', type: 'Sistema de Seguridad Empresarial', icon: '🏢' },
-                { name: 'Policía de Cabo Rojo', type: 'Infraestructura de Red Completa', icon: '🚔' },
-                { name: 'Ricomini Mayagüez', type: 'CCTV y Control de Acceso', icon: '🏭' },
-                { name: 'Ricomini Camuy', type: 'Red y Sistemas de Vigilancia', icon: '🏭' }
+                {
+                  name: 'Infosys Aguadilla',
+                  type: 'Sistema de Seguridad Empresarial',
+                  icon: '🏢',
+                },
+                {
+                  name: 'Policía de Cabo Rojo',
+                  type: 'Infraestructura de Red Completa',
+                  icon: '🚔',
+                },
+                {
+                  name: 'Ricomini Mayagüez',
+                  type: 'CCTV y Control de Acceso',
+                  icon: '🏭',
+                },
+                {
+                  name: 'Ricomini Camuy',
+                  type: 'Red y Sistemas de Vigilancia',
+                  icon: '🏭',
+                },
               ].map((project, index) => (
                 <motion.div
                   key={index}
