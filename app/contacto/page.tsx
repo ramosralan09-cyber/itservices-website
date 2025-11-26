@@ -43,10 +43,14 @@ export default function ContactoPage() {
     <div className="min-h-screen bg-charcoal">
       <section className="relative py-20 bg-gradient-to-br from-navy via-charcoal to-slate overflow-hidden">
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+              backgroundSize: '40px 40px',
+            }}
+          ></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -62,14 +66,18 @@ export default function ContactoPage() {
               className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full mb-6"
             >
               <Mail className="w-4 h-4 text-blue-400" />
-              <span className="text-blue-400 font-semibold text-sm">Estamos Aquí Para Ayudarte</span>
+              <span className="text-blue-400 font-semibold text-sm">
+                Estamos Aquí Para Ayudarte
+              </span>
             </motion.div>
 
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Contacto
+              Contacto y Cotizaciones
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl">
-              Estamos listos para ayudarte con tu proyecto. Respuesta garantizada en 24-48 horas.
+              Estamos listos para ayudarte con tu proyecto de cámaras de seguridad, redes
+              empresariales y control de acceso en Puerto Rico. Respuesta garantizada en
+              24–48 horas para negocios en toda la isla.
             </p>
           </motion.div>
         </div>
@@ -87,7 +95,7 @@ export default function ContactoPage() {
             <div className="grid gap-10 md:grid-cols-2 items-start">
               <div>
                 <h2 className="text-3xl font-bold text-white mb-8">
-                  Información de Contacto
+                  Información de Contacto en Puerto Rico
                 </h2>
 
                 <div className="space-y-6">
@@ -99,7 +107,9 @@ export default function ContactoPage() {
                           <Icon className="w-6 h-6 text-deepBlue" />
                         </div>
                         <div>
-                          <p className="text-gray-400 text-sm mb-1">{item.label}</p>
+                          <p className="text-gray-400 text-sm mb-1">
+                            {item.label}
+                          </p>
                           <p className="text-white font-medium">{item.value}</p>
                         </div>
                       </div>
@@ -111,7 +121,11 @@ export default function ContactoPage() {
                         href={item.href}
                         className="block hover:opacity-80 transition-opacity"
                         target={item.href.startsWith('http') ? '_blank' : undefined}
-                        rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        rel={
+                          item.href.startsWith('http')
+                            ? 'noopener noreferrer'
+                            : undefined
+                        }
                         onClick={(e) => {
                           if (item.href.startsWith('mailto:')) {
                             e.preventDefault();
@@ -133,7 +147,9 @@ export default function ContactoPage() {
                   Contáctanos por WhatsApp o Redes
                 </h3>
                 <p className="text-sm text-gray-300 mb-4 text-center">
-                  Elige el canal que prefieras. Respondemos más rápido por WhatsApp.
+                  Elige el canal que prefieras. Respondemos más rápido por WhatsApp y
+                  atendemos proyectos de cámaras de seguridad, redes y control de acceso
+                  para negocios en toda la isla.
                 </p>
 
                 <Button
