@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title:
     'Cámaras de Seguridad, Control de Acceso y Redes en Puerto Rico | IT Services & Security',
   description:
-    'Instalación profesional de cámaras de seguridad CCTV 4K, cámaras solares 4G, imanes de seguridad, control de acceso, TeleEntry y redes empresariales para negocios en Puerto Rico. Más de 12 años de experiencia brindando soluciones completas de seguridad y tecnología desde Mayagüez a toda la isla.',
+    'Instalación profesional de cámaras de seguridad CCTV 4K, cámaras solares 4G, control de acceso y redes empresariales para negocios en Puerto Rico. Más de 12 años de experiencia en soluciones de seguridad y tecnología.',
   keywords: [
     'cámaras de seguridad Puerto Rico',
     'instalación CCTV Puerto Rico',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title:
       'IT Services & Security – Cámaras de Seguridad, Control de Acceso y Redes en Puerto Rico',
     description:
-      'Soluciones profesionales en cámaras de seguridad, imanes, control de acceso, TeleEntry, redes empresariales y soporte técnico para negocios en Puerto Rico. Infraestructura tecnológica completa y servicio confiable.',
+      'Soluciones profesionales en cámaras de seguridad CCTV 4K, cámaras solares 4G, control de acceso, TeleEntry, redes empresariales y soporte técnico para negocios en Puerto Rico.',
     url: 'https://itservicespr.com',
     siteName: 'IT Services & Security',
     locale: 'es_PR',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title:
       'IT Services & Security | Cámaras de Seguridad, Control de Acceso y Redes en Puerto Rico',
     description:
-      'Instalación de CCTV, cámaras solares 4G, redes empresariales, imanes y control de acceso para negocios en Puerto Rico.',
+      'Instalación de cámaras de seguridad CCTV 4K, cámaras solares 4G, redes empresariales, imanes y control de acceso para negocios en Puerto Rico.',
     images: ['/images/og-image.jpg'],
   },
   robots: {
