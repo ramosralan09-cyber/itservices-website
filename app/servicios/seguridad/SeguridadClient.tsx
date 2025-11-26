@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   Shield,
@@ -13,29 +14,28 @@ import {
   Zap,
   Sun,
   Wifi,
-  Battery
+  Battery,
 } from 'lucide-react';
 import { ScrollColorBackground } from '@/components/shared/ScrollColorBackground';
 
 export default function SeguridadClient() {
   const colorSections = [
-    { offset: 0, color: '#050505' },      // Pure black - Hero top
-    { offset: 0.12, color: '#0a0a12' },   // Very dark
-    { offset: 0.25, color: '#0f1419' },   // Dark navy
-    { offset: 0.40, color: '#0f172a' },   // Slate navy
-    { offset: 0.60, color: '#1e293b' },   // Medium navy
-    { offset: 0.75, color: '#1e3a5f' },   // Blue navy
-    { offset: 0.88, color: '#0c4a6e' },   // Deep blue
-    { offset: 1, color: '#0369a1' },      // Strong blue - CTA
+    { offset: 0, color: '#050505' }, // Pure black - Hero top
+    { offset: 0.12, color: '#0a0a12' }, // Very dark
+    { offset: 0.25, color: '#0f1419' }, // Dark navy
+    { offset: 0.40, color: '#0f172a' }, // Slate navy
+    { offset: 0.60, color: '#1e293b' }, // Medium navy
+    { offset: 0.75, color: '#1e3a5f' }, // Blue navy
+    { offset: 0.88, color: '#0c4a6e' }, // Deep blue
+    { offset: 1, color: '#0369a1' }, // Strong blue - CTA
   ];
 
   const whatsappLink =
-    "https://wa.me/19392842551?text=Hola%2C%20estoy%20interesado%20en%20una%20cotizaci%C3%B3n%20con%20IT%20Services%20%26%20Security.%20Servicio%3A%20Seguridad%20CCTV%20%7C%20Nombre%3A%20%5BEscribir%5D%20%7C%20Tel%C3%A9fono%3A%20%5Bxxx-xxx-xxxx%5D";
+    'https://wa.me/19392842551?text=Hola%2C%20estoy%20interesado%20en%20una%20cotizaci%C3%B3n%20con%20IT%20Services%20%26%20Security.%20Servicio%3A%20Seguridad%20CCTV%20%7C%20Nombre%3A%20%5BEscribir%5D%20%7C%20Tel%C3%A9fono%3A%20%5Bxxx-xxx-xxxx%5D';
 
   return (
     <ScrollColorBackground sections={colorSections}>
       <div className="min-h-screen">
-
         {/* ===========================
             HERO SECTION
         ============================ */}
@@ -57,12 +57,13 @@ export default function SeguridadClient() {
 
               {/* 🔥 SEO OPTIMIZED H1 */}
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                Instalación de Cámaras de Seguridad en Puerto Rico
+                Cámaras de Seguridad y Control de Acceso para Negocios en Puerto Rico
               </h1>
 
               <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-                CCTV 4K, sistemas IP, cámaras solares 4G y soluciones completas de
-                videovigilancia empresarial en toda la isla.
+                Instalación profesional de CCTV 4K, sistemas IP, cámaras solares 4G y
+                soluciones completas de videovigilancia y control de acceso para empresas
+                en toda la isla.
               </p>
 
               <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -98,7 +99,8 @@ export default function SeguridadClient() {
                 Nuestros Servicios de Seguridad
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Protección completa para tu empresa: CCTV, control de acceso y sistemas especializados
+                Protección completa para tu empresa: CCTV, control de acceso y sistemas
+                especializados.
               </p>
             </motion.div>
 
@@ -177,7 +179,9 @@ export default function SeguridadClient() {
                   transition={{ delay: index * 0.1 }}
                   className="group relative bg-gradient-to-br from-slate/80 to-charcoal/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-orange-500/50 transition-all duration-300 overflow-hidden"
                 >
-                  <div className={`absolute inset-0 bg-${service.color}-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                  <div
+                    className={`absolute inset-0 bg-${service.color}-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                  ></div>
 
                   <div className="relative z-10">
                     <div className="mb-6 relative h-48 rounded-xl overflow-hidden">
@@ -234,7 +238,7 @@ export default function SeguridadClient() {
             </div>
 
             {/* ===========================
-                SISTEMA SOLAR 4G
+                BENEFICIOS GENERALES
             ============================ */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -249,14 +253,24 @@ export default function SeguridadClient() {
                 {[
                   { icon: Shield, label: 'Garantía Total', desc: '1 año mano de obra' },
                   { icon: Eye, label: 'Calidad 4K', desc: 'Imagen ultra nítida' },
-                  { icon: Smartphone, label: 'Acceso Remoto', desc: 'Desde cualquier lugar' },
-                  { icon: CheckCircle, label: 'Instalación Pro', desc: 'Técnicos certificados' },
+                  {
+                    icon: Smartphone,
+                    label: 'Acceso Remoto',
+                    desc: 'Desde cualquier lugar',
+                  },
+                  {
+                    icon: CheckCircle,
+                    label: 'Instalación Pro',
+                    desc: 'Técnicos certificados',
+                  },
                 ].map((benefit, idx) => (
                   <div key={idx} className="text-center">
                     <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center mx-auto mb-3">
                       <benefit.icon className="w-6 h-6 text-orange-400" />
                     </div>
-                    <h4 className="text-white font-semibold mb-1">{benefit.label}</h4>
+                    <h4 className="text-white font-semibold mb-1">
+                      {benefit.label}
+                    </h4>
                     <p className="text-gray-400 text-sm">{benefit.desc}</p>
                   </div>
                 ))}
@@ -278,14 +292,17 @@ export default function SeguridadClient() {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-full mb-6">
                 <Zap className="w-4 h-4 text-yellow-400" />
-                <span className="text-yellow-400 font-semibold text-sm">Solución Especializada</span>
+                <span className="text-yellow-400 font-semibold text-sm">
+                  Solución Especializada
+                </span>
               </div>
 
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 Sistemas Solares y 4G
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Vigilancia completamente autónoma para lugares sin energía eléctrica o conexión a internet
+                Vigilancia completamente autónoma para lugares sin energía eléctrica o
+                conexión a internet.
               </p>
             </motion.div>
 
@@ -338,9 +355,7 @@ export default function SeguridadClient() {
                   <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Zap className="w-6 h-6 text-blue-400" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">
-                    Ideal Para
-                  </h3>
+                  <h3 className="text-2xl font-bold text-white">Ideal Para</h3>
                 </div>
 
                 <ul className="space-y-3">
@@ -377,17 +392,23 @@ export default function SeguridadClient() {
                 <div>
                   <Sun className="w-8 h-8 text-yellow-400 mx-auto mb-2" />
                   <h4 className="text-white font-semibold mb-1">100% Autónomo</h4>
-                  <p className="text-gray-400 text-sm">Sin dependencia de red eléctrica</p>
+                  <p className="text-gray-400 text-sm">
+                    Sin dependencia de red eléctrica
+                  </p>
                 </div>
                 <div>
                   <Wifi className="w-8 h-8 text-blue-400 mx-auto mb-2" />
                   <h4 className="text-white font-semibold mb-1">Acceso Remoto</h4>
-                  <p className="text-gray-400 text-sm">Monitoreo desde cualquier lugar</p>
+                  <p className="text-gray-400 text-sm">
+                    Monitoreo desde cualquier lugar
+                  </p>
                 </div>
                 <div>
                   <Battery className="w-8 h-8 text-green-400 mx-auto mb-2" />
                   <h4 className="text-white font-semibold mb-1">Alta Autonomía</h4>
-                  <p className="text-gray-400 text-sm">3-5 días sin luz solar</p>
+                  <p className="text-gray-400 text-sm">
+                    3–5 días sin luz solar
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -417,6 +438,43 @@ export default function SeguridadClient() {
           </div>
         </section>
 
+        {/* ===========================
+            CTA FINAL SEO + INTERLINKING
+        ============================ */}
+        <section className="py-20 bg-black/40">
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-4xl mx-auto text-center"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                ¿Listo para tu próximo proyecto de seguridad en Puerto Rico?
+              </h2>
+              <p className="text-lg text-gray-300 mb-8">
+                Diseñamos e instalamos sistemas de cámaras de seguridad, control de
+                acceso y monitoreo remoto a la medida de tu negocio. Revisamos tu caso,
+                te orientamos y preparamos una propuesta completa sin compromiso.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contacto"
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-500/30 transition-all"
+                >
+                  Solicitar cotización
+                </Link>
+                <Link
+                  href="/portafolio"
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-xl border border-gray-600 text-gray-100 hover:border-orange-400 hover:text-orange-200 transition-all"
+                >
+                  Ver proyectos realizados
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </section>
       </div>
     </ScrollColorBackground>
   );
