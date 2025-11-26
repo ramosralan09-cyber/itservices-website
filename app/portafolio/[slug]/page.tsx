@@ -56,9 +56,8 @@ export function generateMetadata({
       ? project.images[0]
       : '/images/og-image.jpg';
 
-  const keywords: string[] | undefined =
-    (project.tags as string[] | undefined) ??
-    (project.category as string[] | undefined);
+  // Usamos las categorías como keywords SEO
+  const keywords = project.category as string[] | undefined;
 
   const title = `${project.client} – ${project.title} | Portafolio IT Services & Security`;
   const description =
