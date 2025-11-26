@@ -18,22 +18,23 @@ import { ScrollColorBackground } from '@/components/shared/ScrollColorBackground
 
 export default function SoporteClient() {
   const colorSections = [
-    { offset: 0, color: '#050505' },      // Pure black - Hero top
-    { offset: 0.12, color: '#0a0a12' },   // Very dark
-    { offset: 0.25, color: '#0f1419' },   // Dark navy
-    { offset: 0.40, color: '#0f172a' },   // Slate navy
-    { offset: 0.60, color: '#1e293b' },   // Medium navy
-    { offset: 0.75, color: '#1e3a5f' },   // Blue navy
-    { offset: 0.88, color: '#0c4a6e' },   // Deep blue
-    { offset: 1, color: '#0369a1' },      // Strong blue - CTA
+    { offset: 0, color: '#050505' }, // Pure black - Hero top
+    { offset: 0.12, color: '#0a0a12' }, // Very dark
+    { offset: 0.25, color: '#0f1419' }, // Dark navy
+    { offset: 0.40, color: '#0f172a' }, // Slate navy
+    { offset: 0.60, color: '#1e293b' }, // Medium navy
+    { offset: 0.75, color: '#1e3a5f' }, // Blue navy
+    { offset: 0.88, color: '#0c4a6e' }, // Deep blue
+    { offset: 1, color: '#0369a1' }, // Strong blue - CTA
   ];
 
   const whatsappLink =
-    "https://wa.me/19392842551?text=Hola%2C%20estoy%20interesado%20en%20una%20cotizaci%C3%B3n%20con%20IT%20Services%20%26%20Security.%20Servicio%3A%20Soporte%20T%C3%A9cnico%20%7C%20Nombre%3A%20%5BEscribir%5D%20%7C%20Tel%C3%A9fono%3A%20%5Bxxx-xxx-xxxx%5D";
+    'https://wa.me/19392842551?text=Hola%2C%20estoy%20interesado%20en%20una%20cotizaci%C3%B3n%20con%20IT%20Services%20%26%20Security.%20Servicio%3A%20Soporte%20T%C3%A9cnico%20%7C%20Nombre%3A%20%5BEscribir%5D%20%7C%20Tel%C3%A9fono%3A%20%5Bxxx-xxx-xxxx%5D';
 
   return (
     <ScrollColorBackground sections={colorSections}>
       <div className="min-h-screen">
+        {/* HERO */}
         <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
           <div className="container mx-auto px-6 relative z-10 py-20">
             <motion.div
@@ -55,8 +56,9 @@ export default function SoporteClient() {
                 Soporte Técnico para Sistemas de Seguridad y Redes en Puerto Rico
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-                Mantenimiento y asistencia técnica cuando la necesites: remoto, en sitio o preventivo,
-                para mantener tus cámaras, redes y equipos funcionando al 100%.
+                Mantenimiento y asistencia técnica cuando la necesites: remoto, en sitio
+                o preventivo, para mantener tus cámaras, redes y equipos funcionando al
+                100%.
               </p>
 
               <div className="flex flex-wrap justify-center gap-6 text-sm mb-8">
@@ -92,6 +94,7 @@ export default function SoporteClient() {
           </div>
         </section>
 
+        {/* MODALIDADES DE ASISTENCIA */}
         <section className="py-20 relative overflow-hidden">
           <div className="container mx-auto px-6 relative z-10">
             <motion.div
@@ -225,6 +228,7 @@ export default function SoporteClient() {
               ))}
             </div>
 
+            {/* TIEMPOS DE RESPUESTA */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -250,10 +254,50 @@ export default function SoporteClient() {
                 ))}
               </div>
               <p className="text-center text-gray-400 text-sm mt-6">
-                <Link href="/garantias" className="text-blue-400 hover:text-blue-300 underline">
+                <Link
+                  href="/garantias"
+                  className="text-blue-400 hover:text-blue-300 underline"
+                >
                   Ver detalles completos de garantías →
                 </Link>
               </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* CTA FINAL SEO + INTERLINKING */}
+        <section className="py-20 bg-black/40">
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-4xl mx-auto text-center"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                ¿Tus cámaras o redes están fallando en momentos críticos?
+              </h2>
+              <p className="text-lg text-gray-300 mb-8">
+                Podemos ayudarte con soporte remoto, visitas técnicas y planes de
+                mantenimiento preventivo para que tus sistemas de seguridad y redes en
+                Puerto Rico se mantengan siempre operando al 100%.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contacto"
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-500/30 transition-all"
+                >
+                  Solicitar soporte técnico
+                  <Phone className="w-4 h-4 ml-2" />
+                </Link>
+                <Link
+                  href="/portafolio"
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-xl border border-gray-600 text-gray-100 hover:border-green-400 hover:text-green-200 transition-all"
+                >
+                  Ver proyectos realizados
+                </Link>
+              </div>
             </motion.div>
           </div>
         </section>
