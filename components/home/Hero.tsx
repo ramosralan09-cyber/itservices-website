@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Shield, Camera, Network, DoorOpen, MessageCircle, ArrowRight } from 'lucide-react';
@@ -15,7 +14,8 @@ export function Hero() {
       <div className="absolute -bottom-40 -left-32 w-[420px] h-[420px] bg-deepBlue/40 blur-3xl rounded-full" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-center">
+        {/* Antes era grid con 2 columnas, ahora 1 sola y ancho controlado */}
+        <div className="grid gap-12 items-center max-w-4xl">
           {/* Texto principal */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -94,33 +94,6 @@ export function Hero() {
               <div>
                 <p className="text-white font-semibold">Cobertura completa</p>
                 <p>Oeste, Norte, Sur, Centro y área metro</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Lado visual (mockup simple) */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="relative hidden md:block"
-          >
-            <div className="relative h-[360px] rounded-3xl bg-slate overflow-hidden border border-slate-700 shadow-2xl">
-              <Image
-                src="/images/hero/cctv-dashboard.webp"
-                alt="Sistema de cámaras de seguridad y monitoreo para negocios en Puerto Rico"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 40vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-2 text-sm">
-                <p className="text-xs uppercase tracking-[0.15em] text-blue-200">
-                  IT Services & Security
-                </p>
-                <p className="text-white font-semibold">
-                  Monitoreo, grabación y acceso remoto a tus cámaras 24/7 desde cualquier parte del mundo.
-                </p>
               </div>
             </div>
           </motion.div>
