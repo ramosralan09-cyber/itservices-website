@@ -243,3 +243,154 @@ export function Footer() {
                         href={item.href}
                         className="text-gray-400 hover:text-skyBlue transition-colors text-sm flex items-center gap-2 group"
                       >
+                        <span className="text-base">{item.icon}</span>
+                        <span className="group-hover:translate-x-1 transition-transform">
+                          {item.name}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              <div className="mt-8 p-4 bg-slate rounded-xl">
+                <p className="text-white font-medium text-sm mb-3">Contacto Directo</p>
+                <div className="space-y-2">
+                  <a
+                    href="https://wa.me/19392842551"
+                    className="flex items-center gap-2 text-gray-400 hover:text-green-400 transition-colors text-sm"
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>(939) 284-2551</span>
+                  </a>
+                  <a
+                    href="tel:+17876193432"
+                    className="flex items-center gap-2 text-gray-400 hover:text-skyBlue transition-colors text-sm"
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>(787) 619-3432</span>
+                  </a>
+                  <a
+                    href="mailto:itservice.pr4u@gmail.com"
+                    className="flex items-center gap-2 text-gray-400 hover:text-skyBlue transition-colors text-sm"
+                  >
+                    <Mail className="w-4 h-4" />
+                    <span className="text-xs">itservice.pr4u@gmail.com</span>
+                  </a>
+                </div>
+              </div>
+            </section>
+
+            {/* Newsletter y métodos de pago */}
+            <section aria-label="Newsletter y métodos de pago">
+              <h4 className="text-white font-bold text-lg mb-6">Mantente Informado</h4>
+              <p className="text-gray-400 text-sm mb-4">
+                Recibe ofertas exclusivas, tips de seguridad y novedades sobre cámaras, redes y
+                control de acceso para tu negocio.
+              </p>
+
+              <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+                <div>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="tu@email.com"
+                    required
+                    className="w-full px-4 py-3 bg-slate text-white rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-skyBlue placeholder-gray-500"
+                    aria-label="Correo electrónico para suscripción"
+                  />
+                </div>
+                <motion.button
+                  type="submit"
+                  disabled={isSubmitting || submitted}
+                  className={`w-full px-4 py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-2 transition-colors ${
+                    submitted
+                      ? 'bg-green-500 text-white'
+                      : 'bg-deepBlue text-white hover:bg-skyBlue'
+                  }`}
+                  whileHover={!submitted ? { scale: 1.02 } : {}}
+                  whileTap={!submitted ? { scale: 0.98 } : {}}
+                >
+                  {submitted ? (
+                    <>
+                      <Award className="w-4 h-4" />
+                      ¡Suscrito!
+                    </>
+                  ) : isSubmitting ? (
+                    <>
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                      >
+                        <Send className="w-4 h-4" />
+                      </motion.div>
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      Suscribirme
+                    </>
+                  )}
+                </motion.button>
+              </form>
+
+              <p className="text-gray-500 text-xs mt-3">
+                Al suscribirte, aceptas nuestra{' '}
+                <Link href="/privacidad" className="text-skyBlue hover:underline">
+                  política de privacidad
+                </Link>
+                .
+              </p>
+
+              <div className="mt-8 pt-6 border-t border-gray-700">
+                <p className="text-gray-500 text-xs mb-3">Métodos de pago aceptados:</p>
+                <div className="flex flex-wrap gap-2">
+                  {['ATH Móvil', 'Visa', 'Mastercard', 'Efectivo'].map((method) => (
+                    <span
+                      key={method}
+                      className="text-xs bg-slate text-gray-400 px-2 py-1 rounded border border-gray-700"
+                    >
+                      {method}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </div>
+
+          {/* Franja inferior */}
+          <div className="pt-8 border-t border-gray-800">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm mb-6">
+              <Link
+                href="/privacidad"
+                className="text-gray-500 hover:text-blue-400 transition-colors"
+              >
+                Privacidad
+              </Link>
+              <Link
+                href="/terminos"
+                className="text-gray-500 hover:text-blue-400 transition-colors"
+              >
+                Términos
+              </Link>
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent('openCookieSettings'))}
+                className="text-gray-500 hover:text-blue-400 transition-colors flex items-center gap-2"
+              >
+                <Cookie className="w-4 h-4" />
+                Configuración de Cookies
+              </button>
+            </div>
+            <p className="text-gray-500 text-sm text-center">
+              © 2025 IT Services &amp; Security. Hecho con{' '}
+              <span className="text-[#FF7A00]">❤️</span> en Puerto Rico{' '}
+              <span className="inline-block">🇵🇷</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
