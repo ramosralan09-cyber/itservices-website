@@ -28,6 +28,7 @@ export function Footer() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Simulación de envío – aquí luego se puede conectar a un servicio real
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     setSubmitted(true);
@@ -39,18 +40,23 @@ export function Footer() {
 
   return (
     <footer className="relative bg-charcoal border-t border-gray-800 overflow-hidden">
+      {/* Fondos suaves */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-deepBlue rounded-full filter blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-skyBlue rounded-full filter blur-3xl" />
       </div>
 
       <div className="relative">
+        {/* CTA superior (carrusel) */}
         <CtaCarousel />
 
         <div className="container mx-auto px-6 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
-
-            <div className="lg:col-span-1">
+            {/* Marca + redes + cobertura */}
+            <section
+              className="lg:col-span-1"
+              aria-label="Acerca de IT Services & Security y redes sociales"
+            >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +66,7 @@ export function Footer() {
                 <div className="mb-4">
                   <Image
                     src="/images/logos/itss-logo.png"
-                    alt="IT Services & Security - Puerto Rico"
+                    alt="IT Services & Security - Cámaras de seguridad, control de acceso y redes en Puerto Rico"
                     width={180}
                     height={23}
                     className="h-9 w-auto"
@@ -68,10 +74,14 @@ export function Footer() {
                 </div>
 
                 <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                  Protegiendo negocios puertorriqueños con tecnología de punta y servicio local confiable desde 2012.
+                  Protegiendo negocios puertorriqueños con{' '}
+                  <span className="text-gray-200 font-semibold">
+                    cámaras de seguridad, control de acceso y redes empresariales
+                  </span>{' '}
+                  desde 2012, con servicio local confiable y instalación profesional.
                 </p>
 
-                <div className="flex gap-3">
+                <div className="flex gap-3" aria-label="Redes sociales">
                   <motion.a
                     href="https://www.instagram.com/itservicespr?igsh=MmI5Z3J2dWYwMHVz&utm_source=qr"
                     target="_blank"
@@ -79,6 +89,7 @@ export function Footer() {
                     className="w-10 h-10 bg-slate rounded-lg flex items-center justify-center text-gray-400 hover:text-[#FF7A00] transition-colors duration-300"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.9 }}
+                    aria-label="Instagram IT Services & Security"
                   >
                     <Instagram className="w-5 h-5" />
                   </motion.a>
@@ -89,6 +100,7 @@ export function Footer() {
                     className="w-10 h-10 bg-slate rounded-lg flex items-center justify-center text-gray-400 hover:text-[#FF7A00] transition-colors duration-300"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.9 }}
+                    aria-label="Facebook IT Services & Security"
                   >
                     <Facebook className="w-5 h-5" />
                   </motion.a>
@@ -99,9 +111,10 @@ export function Footer() {
                     className="w-10 h-10 bg-slate rounded-lg flex items-center justify-center text-gray-400 hover:text-[#FF7A00] transition-colors duration-300"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.9 }}
+                    aria-label="TikTok IT Services & Security"
                   >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                     </svg>
                   </motion.a>
                   <motion.a
@@ -109,6 +122,7 @@ export function Footer() {
                     className="w-10 h-10 bg-slate rounded-lg flex items-center justify-center text-gray-400 hover:text-[#FF7A00] transition-colors duration-300"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.9 }}
+                    aria-label="Enviar correo a IT Services & Security"
                   >
                     <Mail className="w-5 h-5" />
                   </motion.a>
@@ -134,9 +148,10 @@ export function Footer() {
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
 
-            <div>
+            {/* Servicios */}
+            <nav aria-label="Servicios de IT Services & Security">
               <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2">
                 <Shield className="w-5 h-5 text-skyBlue" />
                 Servicios
@@ -144,8 +159,8 @@ export function Footer() {
               <ul className="space-y-3">
                 {[
                   { name: 'Redes y Conectividad', href: '/servicios/redes' },
-                  { name: 'Sistemas de Seguridad', href: '/servicios/seguridad' },
-                  { name: 'Control de Acceso', href: '/servicios/seguridad#acceso' },
+                  { name: 'Sistemas de Seguridad (CCTV)', href: '/servicios/seguridad' },
+                  { name: 'Control de Acceso y TeleEntry', href: '/servicios/seguridad#acceso' },
                   { name: 'Consultoría Técnica', href: '/servicios/consultoria' },
                   { name: 'Soporte y Mantenimiento', href: '/servicios/soporte' },
                 ].map((item) => (
@@ -155,19 +170,22 @@ export function Footer() {
                       className="text-gray-400 hover:text-skyBlue transition-colors text-sm flex items-center gap-2 group"
                     >
                       <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <span className="group-hover:translate-x-1 transition-transform">{item.name}</span>
+                      <span className="group-hover:translate-x-1 transition-transform">
+                        {item.name}
+                      </span>
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
 
-            <div>
+            {/* Empresa */}
+            <nav aria-label="Información de la empresa">
               <h4 className="text-white font-bold text-lg mb-6">Empresa</h4>
               <ul className="space-y-3">
                 {[
                   { name: 'Sobre Nosotros', href: '/nosotros' },
-                  { name: 'Portfolio', href: '/portafolio' },
+                  { name: 'Portafolio', href: '/portafolio' },
                   { name: 'Trabaja con Nosotros', href: '/careers', badge: 'Próximamente' },
                   { name: 'Casos de Éxito', href: '/portafolio' },
                   { name: 'Contacto', href: '/contacto' },
@@ -178,7 +196,9 @@ export function Footer() {
                       className="text-gray-400 hover:text-skyBlue transition-colors text-sm flex items-center gap-2 group"
                     >
                       <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <span className="group-hover:translate-x-1 transition-transform">{item.name}</span>
+                      <span className="group-hover:translate-x-1 transition-transform">
+                        {item.name}
+                      </span>
                       {item.badge && (
                         <span className="text-xs bg-orange/20 text-orange px-2 py-0.5 rounded-full">
                           {item.badge}
@@ -202,159 +222,24 @@ export function Footer() {
                   ))}
                 </div>
               </div>
-            </div>
+            </nav>
 
-            <div>
+            {/* Legal + contacto directo */}
+            <section aria-label="Legal y contacto directo">
               <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2">
                 <Shield className="w-5 h-5 text-skyBlue" />
                 Legal y Políticas
               </h4>
-              <ul className="space-y-3">
-                {[
-                  { name: 'Garantías y Protección', href: '/garantias', icon: '🛡️' },
-                  { name: 'Términos y Condiciones', href: '/terminos', icon: '📄' },
-                  { name: 'Política de Privacidad', href: '/privacidad', icon: '🔒' },
-                  { name: 'Cobertura de Servicio', href: '/cobertura', icon: '📍' },
-                ].map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      href={item.href}
-                      className="text-gray-400 hover:text-skyBlue transition-colors text-sm flex items-center gap-2 group"
-                    >
-                      <span className="text-base">{item.icon}</span>
-                      <span className="group-hover:translate-x-1 transition-transform">{item.name}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-8 p-4 bg-slate rounded-xl">
-                <p className="text-white font-medium text-sm mb-3">Contacto Directo</p>
-                <div className="space-y-2">
-                  <a
-                    href="https://wa.me/19392842551"
-                    className="flex items-center gap-2 text-gray-400 hover:text-green-400 transition-colors text-sm"
-                  >
-                    <Phone className="w-4 h-4" />
-                    <span>(939) 284-2551</span>
-                  </a>
-                  <a
-                    href="tel:+17876193432"
-                    className="flex items-center gap-2 text-gray-400 hover:text-skyBlue transition-colors text-sm"
-                  >
-                    <Phone className="w-4 h-4" />
-                    <span>(787) 619-3432</span>
-                  </a>
-                  <a
-                    href="mailto:itservice.pr4u@gmail.com"
-                    className="flex items-center gap-2 text-gray-400 hover:text-skyBlue transition-colors text-sm"
-                  >
-                    <Mail className="w-4 h-4" />
-                    <span className="text-xs">itservice.pr4u@gmail.com</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold text-lg mb-6">Mantente Informado</h4>
-              <p className="text-gray-400 text-sm mb-4">
-                Recibe ofertas exclusivas, tips de seguridad y novedades de productos.
-              </p>
-
-              <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-                <div>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="tu@email.com"
-                    required
-                    className="w-full px-4 py-3 bg-slate text-white rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-skyBlue placeholder-gray-500"
-                  />
-                </div>
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting || submitted}
-                  className={`w-full px-4 py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-2 transition-colors ${
-                    submitted
-                      ? 'bg-green-500 text-white'
-                      : 'bg-deepBlue text-white hover:bg-skyBlue'
-                  }`}
-                  whileHover={!submitted ? { scale: 1.02 } : {}}
-                  whileTap={!submitted ? { scale: 0.98 } : {}}
-                >
-                  {submitted ? (
-                    <>
-                      <Award className="w-4 h-4" />
-                      ¡Suscrito!
-                    </>
-                  ) : isSubmitting ? (
-                    <>
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+              <nav aria-label="Enlaces legales">
+                <ul className="space-y-3">
+                  {[
+                    { name: 'Garantías y Protección', href: '/garantias', icon: '🛡️' },
+                    { name: 'Términos y Condiciones', href: '/terminos', icon: '📄' },
+                    { name: 'Política de Privacidad', href: '/privacidad', icon: '🔒' },
+                    { name: 'Cobertura de Servicio', href: '/cobertura', icon: '📍' },
+                  ].map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href}
+                        className="text-gray-400 hover:text-skyBlue transition-colors text-sm flex items-center gap-2 group"
                       >
-                        <Send className="w-4 h-4" />
-                      </motion.div>
-                      Enviando...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4" />
-                      Suscribirme
-                    </>
-                  )}
-                </motion.button>
-              </form>
-
-              <p className="text-gray-500 text-xs mt-3">
-                Al suscribirte, aceptas nuestra{' '}
-                <Link href="/privacidad" className="text-skyBlue hover:underline">
-                  política de privacidad
-                </Link>
-              </p>
-
-              <div className="mt-8 pt-6 border-t border-gray-700">
-                <p className="text-gray-500 text-xs mb-3">Métodos de pago aceptados:</p>
-                <div className="flex flex-wrap gap-2">
-                  {['ATH Móvil', 'Visa', 'Mastercard', 'Efectivo'].map((method) => (
-                    <span
-                      key={method}
-                      className="text-xs bg-slate text-gray-400 px-2 py-1 rounded border border-gray-700"
-                    >
-                      {method}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-8 border-t border-gray-800">
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm mb-6">
-              <Link href="/privacidad" className="text-gray-500 hover:text-blue-400 transition-colors">
-                Privacidad
-              </Link>
-              <Link href="/terminos" className="text-gray-500 hover:text-blue-400 transition-colors">
-                Términos
-              </Link>
-              <button
-                onClick={() => window.dispatchEvent(new CustomEvent('openCookieSettings'))}
-                className="text-gray-500 hover:text-blue-400 transition-colors flex items-center gap-2"
-              >
-                <Cookie className="w-4 h-4" />
-                Configuración de Cookies
-              </button>
-            </div>
-            <p className="text-gray-500 text-sm text-center">
-              © 2025 IT Services & Security. Hecho con{' '}
-              <span className="text-[#FF7A00]">❤️</span> en Puerto Rico{' '}
-              <span className="inline-block">🇵🇷</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
