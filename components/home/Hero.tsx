@@ -2,110 +2,103 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Shield, Camera, Network, DoorOpen, MessageCircle, ArrowRight } from 'lucide-react';
-import { WHATSAPP_URL } from '@/lib/whatsapp';
+import { ChevronDown, FileText, Sparkles, ArrowRight } from 'lucide-react';
 
 export function Hero() {
+  const whatsappLink = "https://wa.me/19392842551?text=Hola%2C%20estoy%20interesado%20en%20una%20cotizaci%C3%B3n%20con%20IT%20Services%20%26%20Security.%20Servicio%3A%20%5BIndicar%5D%20%7C%20Nombre%3A%20%5BEscribir%5D%20%7C%20Tel%C3%A9fono%3A%20%5Bxxx-xxx-xxxx%5D";
+
   return (
-    <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
-      {/* Glow / fondo */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-charcoal to-navy opacity-80" />
-      <div className="absolute -top-40 -right-32 w-[480px] h-[480px] bg-skyBlue/30 blur-3xl rounded-full" />
-      <div className="absolute -bottom-40 -left-32 w-[420px] h-[420px] bg-deepBlue/40 blur-3xl rounded-full" />
-
-      {/* CONTENEDOR CENTRADO Y ANCHO OPTIMIZADO */}
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-5xl mx-auto">
-          {/* Texto principal */}
+    <section className="relative min-h-screen pt-20 flex items-center justify-center overflow-hidden">
+      <div className="relative z-10 container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-4xl mx-auto text-center"
+        >
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full mb-8"
           >
-            {/* Badge superior */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-400/40 mb-5">
-              <Shield className="w-4 h-4 text-emerald-400" />
-              <span className="text-xs font-semibold text-emerald-200">
-                Especialistas en seguridad y redes para negocios en Puerto Rico
-              </span>
+            <Sparkles className="w-4 h-4 text-blue-400" />
+            <span className="text-blue-400 font-semibold text-sm">12+ años protegiendo empresas en PR</span>
+          </motion.div>
+
+          <motion.h1
+            className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            Protección inteligente y
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-skyBlue to-deepBlue">
+              {" "}conectividad profesional
+            </span>
+          </motion.h1>
+
+          <motion.p
+            className="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            Soluciones de seguridad, redes y automatización para empresas en Puerto Rico
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+            <motion.a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#0B5FFF] to-[#FF7A00] text-white rounded-xl font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-blue-500/50 flex items-center justify-center gap-2 overflow-hidden"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <FileText className="w-5 h-5 relative z-10" />
+              <span className="relative z-10">Solicitar Cotización</span>
+              <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
+            </motion.a>
+
+            <motion.a
+              href="/servicios"
+              className="group w-full sm:w-auto px-8 py-4 bg-slate/80 backdrop-blur-sm border-2 border-gray-600 text-white hover:border-blue-500 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span>Explorar servicios</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </motion.a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="mt-12 flex flex-wrap items-center justify-center gap-8 text-gray-400 text-sm"
+          >
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <span>120+ Proyectos completados</span>
             </div>
-
-            {/* Título principal */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-5">
-              Cámaras de seguridad, control de acceso y redes{' '}
-              <span className="text-skyBlue">para tu negocio en Puerto Rico</span>
-            </h1>
-
-            {/* Descripción */}
-            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mb-6 leading-relaxed">
-              Instalamos <strong className="text-white font-semibold">CCTV 4K</strong>,{' '}
-              <strong className="text-white font-semibold">cámaras solares 4G</strong>,{' '}
-              <strong className="text-white font-semibold">imanes y control de acceso</strong>,
-              además de{' '}
-              <strong className="text-white font-semibold">
-                redes empresariales y WiFi profesional
-              </strong>
-              . Más de 12 años protegiendo comercios, oficinas médicas, panaderías y empresas en
-              toda la isla.
-            </p>
-
-            {/* Chips de servicios */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              {[
-                { icon: Camera, label: 'Cámaras 4K y solares 4G' },
-                { icon: DoorOpen, label: 'Control de acceso y TeleEntry' },
-                { icon: Network, label: 'Redes empresariales y WiFi' },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate/80 border border-slate-600"
-                >
-                  <item.icon className="w-4 h-4 text-skyBlue" />
-                  <span className="text-xs font-medium text-gray-200">{item.label}</span>
-                </div>
-              ))}
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+              <span>Cobertura en toda la isla</span>
             </div>
-
-            {/* Botones CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-6">
-              <Link
-                href="/contacto"
-                className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold shadow-lg shadow-blue-500/40 hover:from-blue-600 hover:to-blue-700 transition-all"
-              >
-                Solicitar cotización
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/60 text-emerald-100 font-semibold hover:bg-emerald-500/20 transition-all"
-              >
-                <MessageCircle className="w-4 h-4 mr-2" />
-                Hablar por WhatsApp
-              </a>
-            </div>
-
-            {/* Métricas de confianza */}
-            <div className="flex flex-wrap gap-6 text-sm text-gray-400">
-              <div>
-                <p className="text-white font-semibold">12+ años</p>
-                <p>de experiencia en seguridad y redes</p>
-              </div>
-              <div>
-                <p className="text-white font-semibold">120+ proyectos</p>
-                <p>para negocios en toda la isla</p>
-              </div>
-              <div>
-                <p className="text-white font-semibold">Cobertura completa</p>
-                <p>Oeste, Norte, Sur, Centro y área metro</p>
-              </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+              <span>Soporte 24/7</span>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
-
