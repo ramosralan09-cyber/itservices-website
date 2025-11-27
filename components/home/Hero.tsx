@@ -13,15 +13,16 @@ export function Hero() {
       <div className="absolute -top-40 -right-32 w-[480px] h-[480px] bg-skyBlue/30 blur-3xl rounded-full" />
       <div className="absolute -bottom-40 -left-32 w-[420px] h-[420px] bg-deepBlue/40 blur-3xl rounded-full" />
 
+      {/* CONTENEDOR CENTRADO Y ANCHO OPTIMIZADO */}
       <div className="container mx-auto px-6 relative z-10">
-        {/* Antes era grid con 2 columnas, ahora 1 sola y ancho controlado */}
-        <div className="grid gap-12 items-center max-w-4xl">
+        <div className="max-w-5xl mx-auto">
           {/* Texto principal */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            {/* Badge superior */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-400/40 mb-5">
               <Shield className="w-4 h-4 text-emerald-400" />
               <span className="text-xs font-semibold text-emerald-200">
@@ -29,18 +30,23 @@ export function Hero() {
               </span>
             </div>
 
-            {/* H1 SEO principal */}
+            {/* Título principal */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-5">
               Cámaras de seguridad, control de acceso y redes{' '}
               <span className="text-skyBlue">para tu negocio en Puerto Rico</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-6 leading-relaxed">
+            {/* Descripción */}
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mb-6 leading-relaxed">
               Instalamos <strong className="text-white font-semibold">CCTV 4K</strong>,{' '}
               <strong className="text-white font-semibold">cámaras solares 4G</strong>,{' '}
               <strong className="text-white font-semibold">imanes y control de acceso</strong>,
-              además de <strong className="text-white font-semibold">redes empresariales y WiFi profesional</strong>.
-              Más de 12 años protegiendo comercios, oficinas médicas, panaderías y empresas en toda la isla.
+              además de{' '}
+              <strong className="text-white font-semibold">
+                redes empresariales y WiFi profesional
+              </strong>
+              . Más de 12 años protegiendo comercios, oficinas médicas, panaderías y empresas en
+              toda la isla.
             </p>
 
             {/* Chips de servicios */}
@@ -60,7 +66,7 @@ export function Hero() {
               ))}
             </div>
 
-            {/* CTA principal */}
+            {/* Botones CTA */}
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <Link
                 href="/contacto"
@@ -81,7 +87,7 @@ export function Hero() {
               </a>
             </div>
 
-            {/* Confianza / métricas */}
+            {/* Métricas de confianza */}
             <div className="flex flex-wrap gap-6 text-sm text-gray-400">
               <div>
                 <p className="text-white font-semibold">12+ años</p>
@@ -102,3 +108,4 @@ export function Hero() {
     </section>
   );
 }
+
