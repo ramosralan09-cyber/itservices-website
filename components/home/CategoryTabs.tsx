@@ -9,7 +9,7 @@ const categories = [
   {
     icon: Network,
     title: 'Redes',
-    description: 'Infraestructura, cableado y conectividad empresarial',
+    description: 'Infraestructura, cableado estructurado y conectividad empresarial',
     href: '/servicios/redes',
     image: '/images/services/service-redes.webp',
     color: 'text-blue-400',
@@ -20,8 +20,8 @@ const categories = [
   },
   {
     icon: Shield,
-    title: 'Seguridad',
-    description: 'CCTV, alarmas, control de acceso y monitoreo',
+    title: 'Cámaras / Accesos',
+    description: 'Videovigilancia profesional y control de acceso para negocios',
     href: '/servicios/seguridad',
     image: '/images/services/service-seguridad.webp',
     color: 'text-yellow-400',
@@ -33,7 +33,7 @@ const categories = [
   {
     icon: Lightbulb,
     title: 'Consultoría',
-    description: 'Asesoría técnica y diseño de soluciones',
+    description: 'Asesoría técnica y diseño de soluciones a la medida',
     href: '/servicios/consultoria',
     image: '/images/services/service-consultoria.webp',
     color: 'text-violet-400',
@@ -44,8 +44,8 @@ const categories = [
   },
   {
     icon: Headphones,
-    title: 'Soporte',
-    description: 'Mantenimiento y asistencia técnica 24/7',
+    title: 'Soporte Técnico',
+    description: 'Mantenimiento, soporte y continuidad operativa 24/7',
     href: '/servicios/soporte',
     image: '/images/services/service-soporte.webp',
     color: 'text-green-400',
@@ -60,10 +60,14 @@ export function CategoryTabs() {
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }}></div>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+            backgroundSize: '40px 40px',
+          }}
+        />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -82,7 +86,9 @@ export function CategoryTabs() {
             className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full mb-6"
           >
             <Zap className="w-4 h-4 text-blue-400" />
-            <span className="text-blue-400 font-semibold text-sm">Servicios Profesionales</span>
+            <span className="text-blue-400 font-semibold text-sm">
+              Servicios Profesionales
+            </span>
           </motion.div>
 
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
@@ -92,85 +98,64 @@ export function CategoryTabs() {
               lo que más importa
             </span>
           </h2>
+
           <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mt-4">
-            Tecnología que impulsa tu negocio, seguridad que te da tranquilidad
+            Diseñamos, instalamos y mantenemos sistemas tecnológicos para
+            empresas en Puerto Rico
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories.map((category, index) => {
-            return (
-              <motion.div
-                key={category.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Link href={category.href}>
-                  <motion.div
-                    whileHover={{ y: -6, scale: 1.02 }}
-                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                    className={`
-                      group relative h-full min-h-[320px]
-                      rounded-2xl overflow-hidden
-                      border ${category.borderColor}
-                      bg-slate/80 backdrop-blur-sm
-                      hover:border-opacity-100 border-opacity-30
-                      shadow-lg shadow-black/40
-                      md:hover:shadow-2xl ${category.shadowColor}
-                      transition-all duration-300 cursor-pointer
-                    `}
-                  >
-                    <Image
-                      src={category.image}
-                      alt={category.title}
-                      fill
-                      className="object-cover opacity-45 group-hover:opacity-60 transition-opacity duration-300"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    />
+          {categories.map((category, index) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Link href={category.href}>
+                <motion.div
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+                  className={`
+                    group relative h-full min-h-[320px]
+                    rounded-2xl overflow-hidden
+                    border ${category.borderColor}
+                    bg-slate/80 backdrop-blur-sm
+                    hover:border-opacity-100 border-opacity-30
+                    shadow-lg shadow-black/40
+                    md:hover:shadow-2xl ${category.shadowColor}
+                    transition-all duration-300 cursor-pointer
+                  `}
+                >
+                  <Image
+                    src={category.image}
+                    alt={category.title}
+                    fill
+                    className="object-cover opacity-45 group-hover:opacity-60 transition-opacity duration-300"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
 
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/70 via-[#020617]/80 to-[#020617]/95" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/70 via-[#020617]/80 to-[#020617]/95" />
 
-                    <div className="relative z-10 h-full px-6 py-6 flex flex-col justify-center items-center text-center">
-                      <div className="flex flex-col items-center gap-4 mt-5 text-center">
-                        <h3
-                          className="text-2xl md:text-3xl font-bold text-white leading-tight"
-                          style={{ textShadow: '0 1px 2px rgba(0,0,0,0.55)' }}
-                        >
-                          {category.title}
-                        </h3>
+                  <div className="relative z-10 h-full px-6 py-6 flex flex-col justify-center items-center text-center">
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                      {category.title}
+                    </h3>
 
-                        <p
-                          className="text-gray-100 text-sm md:text-base line-clamp-3"
-                          style={{ textShadow: '0 1px 2px rgba(0,0,0,0.55)' }}
-                        >
-                          {category.description}
-                        </p>
-                      </div>
+                    <p className="text-gray-100 text-sm md:text-base max-w-xs">
+                      {category.description}
+                    </p>
 
-                      <div className="mt-auto w-full pt-4">
-                        <div
-                          className={`
-                            w-full inline-flex items-center justify-center
-                            px-4 py-2 rounded-lg
-                            text-base font-semibold text-white
-                            bg-gradient-to-r ${category.buttonClasses}
-                            shadow-md group-hover:shadow-xl
-                            group-hover:translate-y-[-1px]
-                            transition-all duration-300
-                          `}
-                        >
-                          <span className="mr-1">Ver más</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                </Link>
-              </motion.div>
-            );
-          })}
+                    <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-white/80">
+                      Ver detalles <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </motion.div>
+              </Link>
+            </motion.div>
+          ))}
         </div>
 
         <motion.div
@@ -181,15 +166,16 @@ export function CategoryTabs() {
           className="text-center mt-12"
         >
           <p className="text-gray-400 mb-4">
-            ¿No estás seguro qué servicio necesitas?
+            ¿No estás seguro qué solución necesitas?
           </p>
+
           <Link href="/contacto">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 px-6 py-3 bg-slate/80 backdrop-blur-sm border border-gray-600 text-white rounded-xl font-semibold hover:border-blue-500 transition-all"
             >
-              <span>Habla con un experto</span>
+              Habla con un experto
               <ArrowRight className="w-4 h-4" />
             </motion.button>
           </Link>
