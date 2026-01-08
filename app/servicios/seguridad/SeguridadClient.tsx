@@ -18,7 +18,7 @@ export default function SeguridadClient() {
         'Visión nocturna IR',
         'App móvil incluida',
       ],
-      image: '/images/services/seguridad/cctv-camera.jpg',
+      image: '/images/services/seguridad/bullet-camera.jpg', // <- CAMBIO
       overlayClass: 'bg-yellow-500/5',
       checkClass: 'text-yellow-400',
     },
@@ -34,7 +34,7 @@ export default function SeguridadClient() {
         'Historial completo',
         'Alertas en tiempo real',
       ],
-      image: '/images/services/seguridad/acceso-door.jpg',
+      image: '/images/services/seguridad/rfid-tarjetas.jpg', // <- CAMBIO
       overlayClass: 'bg-blue-500/5',
       checkClass: 'text-blue-400',
     },
@@ -154,13 +154,9 @@ export default function SeguridadClient() {
                   </div>
 
                   {/* TITLE (sin icono) */}
-                  <h3 className="text-2xl font-bold text-white mb-3">
-                    {service.title}
-                  </h3>
+                  <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
 
-                  <p className="text-gray-300 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
+                  <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
 
                   <ul className="space-y-2">
                     {service.features.map((feature, idx) => (
