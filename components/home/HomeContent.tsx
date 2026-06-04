@@ -3,6 +3,7 @@
 import { Hero } from '@/components/home/Hero';
 import { CategoryTabs } from '@/components/home/CategoryTabs';
 import { ScrollColorBackground } from '@/components/shared/ScrollColorBackground';
+import { SummerPromoModal } from '@/components/home/SummerPromoModal';
 
 export function HomeContent() {
   const colorSections = [
@@ -15,11 +16,14 @@ export function HomeContent() {
   ];
 
   return (
-    <ScrollColorBackground sections={colorSections}>
-      <div className="relative">
-        <Hero />
-        <CategoryTabs />
-      </div>
-    </ScrollColorBackground>
+    <>
+      <SummerPromoModal />
+      <ScrollColorBackground sections={colorSections}>
+        <div className="relative">
+          <Hero />
+          <CategoryTabs />
+        </div>
+      </ScrollColorBackground>
+    </>
   );
 }
