@@ -1,0 +1,10 @@
+Coloca aquí las fotos del proyecto Vistas del Río nombradas:
+  imagen-1.jpg
+  imagen-2.jpg
+  imagen-3.jpg
+  imagen-4.jpg
+  imagen-5.jpg
+  (más si las tienes)
+
+Cliente: Vistas del Río Apartments · Trujillo Alto, PR
+Proyecto: 16 cámaras IP Hikvision, NVR 16 canales, visión nocturna, acceso remoto

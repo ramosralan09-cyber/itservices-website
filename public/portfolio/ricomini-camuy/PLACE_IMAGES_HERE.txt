@@ -1,0 +1,9 @@
+Coloca aquí las fotos del proyecto Ricomini Bakery nombradas:
+  imagen-1.jpg
+  imagen-2.jpg
+  imagen-3.jpg
+  imagen-4.jpg
+  (más si las tienes)
+
+Cliente: Ricomini Bakery · Camuy, PR
+Proyecto: Sistema de comunicación servicarro, audio drive-thru, cableado estructurado

@@ -1,0 +1,12 @@
+Coloca aquí 7 imágenes nombradas:
+  imagen-1.jpg
+  imagen-2.jpg
+  imagen-3.jpg
+  imagen-4.jpg
+  imagen-5.jpg
+  imagen-6.jpg
+  imagen-7.jpg
+
+Estas imágenes se usan como fondo del hero del portafolio (slideshow rotativo).
+Recomendado: fotos de instalaciones reales, trabajos en campo, cámaras, racks, etc.
+Tamaño sugerido: 1920x1080 px, formato JPG, máximo 400KB cada una.

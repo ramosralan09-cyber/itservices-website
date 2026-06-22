@@ -18,26 +18,20 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
 
   const relatedProjects = portfolioProjects
     .filter(
-      (p) =>
-        p.slug !== project.slug &&
-        p.category?.some((cat: string) => project.category?.includes(cat)),
+      (p) => p.slug !== project.slug && p.category === project.category,
     )
     .slice(0, 3);
 
   return <ProjectDetail project={project} relatedProjects={relatedProjects} />;
 }
 
-// --- Static params for SSG ---
 export function generateStaticParams() {
   return portfolioProjects.map((project) => ({
     slug: project.slug,
   }));
 }
 
-// --- SEO metadata por proyecto ---
-export function generateMetadata({
-  params,
-}: ProjectDetailPageProps): Metadata {
+export function generateMetadata({ params }: ProjectDetailPageProps): Metadata {
   const project = portfolioProjects.find((p) => p.slug === params.slug);
 
   if (!project) {
@@ -49,25 +43,20 @@ export function generateMetadata({
   }
 
   const url = `${BASE_URL}/portafolio/${project.slug}`;
-
-  // Intentar usar la primera imagen del proyecto para Open Graph
   const ogImage =
     Array.isArray(project.images) && project.images.length > 0
       ? project.images[0]
       : '/images/og-image.jpg';
 
-  // Usamos las categorías como keywords SEO
-  const keywords = project.category as string[] | undefined;
-
   const title = `${project.client} – ${project.title} | Portafolio IT Services & Security`;
   const description =
     project.summary ||
-    `Proyecto de ${project.category?.join(', ')} realizado para ${project.client} en Puerto Rico por IT Services & Security.`;
+    `Proyecto de ${project.category} realizado para ${project.client} en Puerto Rico por IT Services & Security.`;
 
   return {
     title,
     description,
-    keywords,
+    keywords: [project.category, project.client, 'IT Services Puerto Rico'],
     alternates: {
       canonical: url,
     },

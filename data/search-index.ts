@@ -230,9 +230,9 @@ export const portfolioSearchData: SearchItem[] = portfolioProjects.map(project =
   title: `${project.client} - ${project.title}`,
   description: project.summary,
   url: `/portafolio/${project.slug}`,
-  category: project.category.join(', '),
+  category: project.category,
   keywords: [
-    ...project.category,
+    project.category,
     ...project.technologies,
     project.client.toLowerCase(),
     project.location.toLowerCase()

@@ -1,85 +1,119 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowRight, MapPin } from 'lucide-react'
+import { portfolioProjects } from '@/data/portfolio'
 import { PortfolioCard } from './PortfolioCard'
-import { portfolioProjects, categories } from '@/data/portfolio'
+
+const ROW2_SLUGS = ['ricomini-camuy', 'pr-9-ponce', 'mayaguez-square-district']
+const ROW3_SLUGS = ['infosys-aguadilla', 'vistas-del-rio-apartments']
 
 export function PortfolioGrid() {
-  const [activeCategory, setActiveCategory] = useState('Todos')
-
-  const filteredProjects = portfolioProjects.filter((project) => {
-    if (activeCategory === 'Todos') return true
-    return project.category.includes(activeCategory)
-  })
+  const featured = portfolioProjects.find(p => p.slug === 'cuartel-policia-cabo-rojo')!
+  const row2 = ROW2_SLUGS.map(s => portfolioProjects.find(p => p.slug === s)!)
+  const row3 = ROW3_SLUGS.map(s => portfolioProjects.find(p => p.slug === s)!)
 
   return (
-    <div>
-      <div className="flex flex-wrap gap-3 mb-12 justify-center">
-        {categories.map((category) => {
-          const count = category === 'Todos'
-            ? portfolioProjects.length
-            : portfolioProjects.filter(p => p.category.includes(category)).length
+    <div className="space-y-8">
 
-          return (
-            <motion.button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-xl font-medium transition-all ${
-                activeCategory === category
-                  ? 'bg-deepBlue text-white shadow-lg shadow-deepBlue/50'
-                  : 'bg-slate text-gray-400 hover:text-white hover:bg-navy'
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {category}
-              <span className="ml-2 text-xs opacity-70">({count})</span>
-            </motion.button>
-          )
-        })}
-      </div>
-
-      <motion.p
-        key={activeCategory}
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-gray-400 text-sm mb-8"
-      >
-        Mostrando <span className="text-white font-bold">{filteredProjects.length}</span> proyecto{filteredProjects.length !== 1 && 's'}
-      </motion.p>
-
+      {/* Row 1: Featured card — full width */}
       <motion.div
-        layout
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
       >
-        <AnimatePresence mode="popLayout">
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.slug}
-              layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3 }}
-            >
-              <PortfolioCard project={project} index={index} />
-            </motion.div>
-          ))}
-        </AnimatePresence>
+        <Link href={`/portafolio/${featured.slug}`}>
+          <div className="group bg-[#0d1117] border border-gray-800 rounded-xl overflow-hidden hover:border-teal-500/50 hover:-translate-y-1 transition-all duration-300 grid md:grid-cols-5">
+
+            {/* Image — 3/5 */}
+            <div className="md:col-span-3 relative h-72 md:h-auto bg-gray-800">
+              <Image
+                src={featured.images[0]}
+                alt={featured.title}
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 md:bg-gradient-to-r from-transparent to-[#0d1117]/20 hidden md:block" />
+              <div className="absolute top-4 left-4">
+                <span className="px-3 py-1 bg-teal-500 text-white text-xs font-semibold rounded-full">
+                  {featured.category}
+                </span>
+              </div>
+            </div>
+
+            {/* Content — 2/5 */}
+            <div className="md:col-span-2 p-8 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-1.5 text-gray-400 text-sm mb-3">
+                  <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
+                  {featured.location}
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-teal-400 transition-colors leading-snug">
+                  {featured.title}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                  {featured.summary}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {featured.technologies.map(tech => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 bg-gray-900 border border-gray-700 text-gray-400 text-xs rounded-lg"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <span className="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-700 text-white text-sm rounded-lg group-hover:bg-teal-500 group-hover:border-teal-500 transition-colors w-fit">
+                Ver proyecto <ArrowRight className="w-4 h-4" />
+              </span>
+            </div>
+          </div>
+        </Link>
       </motion.div>
 
-      {filteredProjects.length === 0 && (
+      {/* Row 2: 3 equal columns */}
+      <div className="grid md:grid-cols-3 gap-6">
+        {row2.map((project, i) => (
+          <PortfolioCard key={project.slug} project={project} index={i} />
+        ))}
+      </div>
+
+      {/* Row 3: 2 cards + CTA */}
+      <div className="grid md:grid-cols-3 gap-6">
+        {row3.map((project, i) => (
+          <PortfolioCard key={project.slug} project={project} index={i + 3} />
+        ))}
+
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-center py-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.24 }}
+          className="h-full"
         >
-          <p className="text-gray-400 text-lg">
-            No hay proyectos en esta categoría todavía.
-          </p>
+          <Link href="/contacto" className="block h-full">
+            <div className="group h-full bg-[#0d1117] border border-gray-800 rounded-xl hover:border-teal-500/50 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center p-10 text-center min-h-[280px]">
+              <div className="w-16 h-16 bg-teal-500/10 border border-teal-500/30 rounded-full flex items-center justify-center mb-6 group-hover:bg-teal-500/20 transition-colors">
+                <ArrowRight className="w-7 h-7 text-teal-400" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">
+                ¿Tienes un proyecto?
+              </h3>
+              <p className="text-gray-400 text-sm mb-6">Hablemos →</p>
+              <span className="inline-flex items-center gap-2 px-5 py-2.5 border border-teal-500/50 text-teal-400 text-sm rounded-lg group-hover:bg-teal-500 group-hover:text-white group-hover:border-teal-500 transition-colors">
+                Contáctanos <ArrowRight className="w-4 h-4" />
+              </span>
+            </div>
+          </Link>
         </motion.div>
-      )}
+      </div>
+
     </div>
   )
 }

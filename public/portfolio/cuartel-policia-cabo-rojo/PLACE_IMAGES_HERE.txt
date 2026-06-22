@@ -1,0 +1,12 @@
+Coloca aquí las fotos del proyecto Cuartel Policial Cabo Rojo nombradas:
+  imagen-1.jpg
+  imagen-2.jpg
+  imagen-3.jpg
+  imagen-4.jpg
+  imagen-5.jpg
+  imagen-6.jpg
+  imagen-7.jpg
+  (más si las tienes)
+
+Cliente: Policía de Puerto Rico · Cabo Rojo, Puerto Real
+Proyecto: 32 cámaras IP, fibra óptica, control de acceso, helipuerto, TeleEntry
