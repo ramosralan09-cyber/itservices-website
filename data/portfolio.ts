@@ -4,123 +4,120 @@ export interface PortfolioProject {
   client: string
   location: string
   title: string
+  category: string
   summary: string
   challenge: string
   solution: string
   results: string
   technologies: string[]
   images: string[]
-  category: string[]
   completedDate: string
-  projectValue?: string
   duration?: string
 }
 
 export const portfolioProjects: PortfolioProject[] = [
   {
-    slug: 'policia-cabo-rojo',
+    slug: 'cuartel-policia-cabo-rojo',
     featured: true,
     client: 'Policía de Puerto Rico',
-    location: 'Cabo Rojo',
-    title: 'Sistema de seguridad perimetral completo',
-    summary: 'Instalación integral de videovigilancia y control de acceso para cuartel policial con cobertura 24/7',
-    challenge: 'El cuartel requería seguridad 24/7 sin puntos ciegos, con redundancia de grabación y acceso restringido a áreas críticas. El presupuesto era limitado pero no se podía comprometer la calidad ni la confiabilidad del sistema.',
-    solution: 'Implementamos 24 cámaras IP PTZ Hikvision 4K con analíticas de perímetro, NVR con disco redundante RAID, control de acceso biométrico en 8 puertas, y monitoreo remoto vía VPN. Cableado estructurado Cat6 certificado y UPS centralizado de 3KVA para protección contra apagones.',
-    results: '100% de cobertura visual sin puntos ciegos, tiempo de respuesta ante alertas reducido en 70%, cero falsos positivos en 6 meses de operación. Sistema integrado exitosamente a central de monitoreo de distrito.',
-    technologies: ['Hikvision 4K PTZ', 'RAID Storage', 'Biometric Access', 'VPN Remote', 'Cat6 Certified'],
-    images: [
-      '/portfolio/policia-cabo-rojo-1.jpg',
-      '/portfolio/policia-cabo-rojo-2.jpg',
-      '/portfolio/policia-cabo-rojo-3.jpg',
-      '/portfolio/policia-cabo-rojo-4.jpg'
-    ],
-    category: ['CCTV', 'Access Control', 'Government'],
-    completedDate: '2024-01',
-    projectValue: '$45,000 - $60,000',
-    duration: '3 semanas'
+    location: 'Cabo Rojo, Puerto Real, PR',
+    title: 'Cuartel Policial · Seguridad & Comunicaciones Integral',
+    category: 'Gobierno',
+    summary: 'Desarrollo integral de infraestructura de seguridad y comunicaciones para el Distrito de Cabo Rojo. El proyecto incluyó 32 cámaras IP de alta definición, controles de acceso vehicular y peatonal, fibra óptica, redes Wi-Fi, alarmas de incendio, sistemas de radio e intercom, TeleEntry y sistemas especializados para el helipuerto. Todo centralizado para vigilancia, conectividad y operación eficiente del cuartel.',
+    technologies: ['Hikvision IP', 'Fibra Óptica', 'Access Control', 'TeleEntry', 'Fire Alarm', 'Wi-Fi Enterprise'],
+    images: Array.from({ length: 7 }, (_, i) => `/portfolio/cuartel-policia-cabo-rojo/imagen-${i + 1}.jpg`),
+    challenge: 'Instalación en instalación gubernamental activa requiriendo coordinación sin interrumpir operaciones policiales 24/7.',
+    solution: 'Ejecución por fases nocturnas con 32 cámaras, fibra óptica, acceso vehicular automatizado, radio, intercom y sistema helipuerto integrados en sala de control centralizada.',
+    results: 'Cobertura total del cuartel con vigilancia 24/7, comunicaciones unificadas y centro de control que centraliza todos los sistemas de seguridad.',
+    completedDate: '2024-06',
+    duration: '8 semanas',
   },
   {
-    slug: 'ricomini-mayaguez',
+    slug: 'ricomini-camuy',
     featured: true,
     client: 'Ricomini Bakery',
-    location: 'Mayagüez, Camuy, Aguadilla',
-    title: 'Red empresarial multi-sucursal con fibra óptica',
-    summary: 'Infraestructura de red escalable conectando 3 sucursales con enlaces de fibra óptica de alta velocidad',
-    challenge: 'Tres locales operando con redes independientes, sin comunicación entre ellos. Inventario y sistemas POS descentralizados generaban inconsistencias y retrasos. Necesitaban centralizar operaciones manteniendo velocidad local y sin interrumpir el negocio.',
-    solution: 'Diseño de red con core en Mayagüez, enlaces de fibra óptica 1Gbps entre sucursales, VLANs segmentadas por departamento (ventas, producción, administración), Wi-Fi 6 con roaming transparente, switches Ruijie L3 con redundancia y firewall centralizado. Migración ejecutada en horario nocturno sin downtime.',
-    results: 'Inventario sincronizado en tiempo real entre sucursales, mejora de 300% en velocidad de respaldo a servidor central, Wi-Fi estable con 150+ dispositivos simultáneos, reducción de 60% en tickets de soporte de red. ROI recuperado en menos de 18 meses.',
-    technologies: ['Fiber Optic 1Gbps', 'Ruijie L3 Switches', 'VLAN Segmentation', 'Wi-Fi 6', 'Centralized Firewall'],
-    images: [
-      '/portfolio/ricomini-1.jpg',
-      '/portfolio/ricomini-2.jpg',
-      '/portfolio/ricomini-3.jpg'
-    ],
-    category: ['Networking', 'Fiber Optic', 'Wi-Fi', 'Retail'],
-    completedDate: '2023-11',
-    projectValue: '$35,000 - $45,000',
-    duration: '4 semanas'
+    location: 'Camuy, PR',
+    title: 'Ricomini Bakery · Sistema de Comunicación Servicarro',
+    category: 'Comercial',
+    summary: 'Instalación completa de un sistema profesional de comunicación para servicarro, incluyendo infraestructura, cableado estructurado, aislamiento acústico y configuración avanzada. La solución elevó la claridad de recepción y la eficiencia operativa en la atención al cliente, reduciendo tiempos de espera y mejorando la experiencia en línea.',
+    technologies: ['Cableado Estructurado', 'Audio Profesional', 'Aislamiento Acústico', 'Drive-Thru System'],
+    images: Array.from({ length: 4 }, (_, i) => `/portfolio/ricomini-camuy/imagen-${i + 1}.jpg`),
+    challenge: 'Sistema de comunicación para servicarro con problemas de claridad de audio y eficiencia operativa.',
+    solution: 'Instalación completa con cableado estructurado, aislamiento de sonido y configuración de sistema de audio profesional para drive-thru.',
+    results: 'Mejora notable en claridad de comunicación, reducción de errores en pedidos y aumento en la velocidad de servicio.',
+    completedDate: '2024-02',
+    duration: '1 semana',
+  },
+  {
+    slug: 'pr-9-ponce',
+    featured: false,
+    client: 'Proyecto Vial PR-9',
+    location: 'Ponce, PR',
+    title: 'Carretera PR-9 · Monitoreo Solar 4G en Construcción',
+    category: 'Infraestructura',
+    summary: 'Instalación de 4 cámaras solares con conectividad 4G para vigilar maquinaria pesada, labores de construcción y el progreso general de la obra vial. El sistema permite monitoreo remoto en tiempo real en zonas donde no existe acceso convencional a electricidad ni internet, garantizando supervisión continua de activos críticos.',
+    technologies: ['Cámara Solar', '4G LTE', 'Monitoreo Remoto', 'Cloud Storage', 'Battery Backup'],
+    images: Array.from({ length: 4 }, (_, i) => `/portfolio/pr-9-ponce/imagen-${i + 1}.jpg`),
+    challenge: 'Zona de construcción sin acceso a electricidad ni internet convencional, requiriendo vigilancia continua de maquinaria de alto valor.',
+    solution: '4 cámaras con panel solar integrado y conectividad 4G LTE, con almacenamiento en nube y acceso remoto desde cualquier dispositivo.',
+    results: 'Vigilancia 24/7 de activos, reducción de incidentes con maquinaria y supervisión remota del progreso de obra en tiempo real.',
+    completedDate: '2023-10',
+    duration: '3 días',
+  },
+  {
+    slug: 'mayaguez-square-district',
+    featured: false,
+    client: 'Mayagüez Square District',
+    location: 'Mayagüez, PR',
+    title: 'Mayagüez Square · Conectividad Starlink en Obra',
+    category: 'Conectividad',
+    summary: 'Instalación de 2 antenas Starlink para proveer conectividad satelital de alta velocidad durante el desarrollo del proyecto de construcción. La solución garantizó que ingenieros, contratistas y personal técnico mantuvieran acceso estable y confiable a internet en el área de trabajo, facilitando coordinación en tiempo real y gestión de planos digitales.',
+    technologies: ['Starlink', 'Conectividad Satelital', 'Wi-Fi Distribución', 'Red Temporal Obra'],
+    images: Array.from({ length: 4 }, (_, i) => `/portfolio/mayaguez-square-district/imagen-${i + 1}.jpg`),
+    challenge: 'Proyecto de construcción comercial sin infraestructura de internet disponible, afectando la coordinación entre equipos técnicos.',
+    solution: 'Instalación de 2 antenas Starlink con distribución Wi-Fi interna para cubrir toda el área de obra con conectividad satelital estable.',
+    results: 'Conectividad estable para todo el equipo de construcción, mejora en coordinación y acceso a planos digitales en tiempo real.',
+    completedDate: '2024-01',
+    duration: '2 días',
   },
   {
     slug: 'infosys-aguadilla',
-    featured: true,
-    client: 'Infosys Systems',
-    location: 'Aguadilla',
-    title: 'Videovigilancia industrial con analíticas LPR',
-    summary: 'Sistema de 48 cámaras con reconocimiento de placas y detección inteligente para planta industrial',
-    challenge: 'Planta industrial de 50,000 sq ft con áreas de carga, producción y almacén de alto valor. Necesitaban control de acceso vehicular automatizado, monitoreo perimetral 24/7 y grabación de alta resolución para auditorías y cumplimiento regulatorio.',
-    solution: '48 cámaras IP 4K (20 PTZ con zoom 30x, 28 fijas gran angular), 6 cámaras LPR especializadas en portones de entrada/salida, NVR enterprise de 128 canales con 80TB storage RAID-6, analíticas de línea virtual y detección de objetos abandonados. Software de gestión Hik-Central con dashboards personalizados y alertas push.',
-    results: 'Identificación vehicular con 99.8% de precisión, reducción de 85% en tiempo de búsqueda de incidentes en video, alertas en tiempo real de intrusión perimetral con 0 falsos positivos en horario de producción. Sistema escalable hasta 200 cámaras. Base de datos de placas integrada con sistema de nómina.',
-    technologies: ['Hikvision 4K', 'LPR Analytics', 'Hik-Central VMS', '80TB RAID-6', 'AI Object Detection'],
-    images: [
-      '/portfolio/infosys-1.jpg',
-      '/portfolio/infosys-2.jpg',
-      '/portfolio/infosys-3.jpg',
-      '/portfolio/infosys-4.jpg',
-      '/portfolio/infosys-5.jpg'
-    ],
-    category: ['CCTV', 'LPR', 'Analytics', 'Industrial'],
-    completedDate: '2024-03',
-    projectValue: '$70,000 - $85,000',
-    duration: '6 semanas'
+    featured: false,
+    client: 'Infosys',
+    location: 'Aguadilla, PR',
+    title: 'Infosys · Infraestructura LAN Empresarial 300 Líneas',
+    category: 'Redes',
+    summary: 'Desarrollo completo de infraestructura de red corporativa mediante la instalación de 300 líneas LAN certificadas. El proyecto incluyó cableado estructurado de alto rendimiento, organización y rack management profesional, identificación de cada punto y preparación de la red para garantizar conectividad eficiente, escalabilidad empresarial y cumplimiento con estándares industriales.',
+    technologies: ['Cat6A Certificado', 'Cableado Estructurado', 'Rack Management', 'Patch Panel', 'Network Testing'],
+    images: Array.from({ length: 5 }, (_, i) => `/portfolio/infosys-aguadilla/imagen-${i + 1}.jpg`),
+    challenge: 'Empresa de tecnología requería infraestructura de red nueva con 300 puntos LAN en instalación corporativa de gran escala.',
+    solution: 'Cableado estructurado certificado Cat6A, organización de racks, patch panels y pruebas de certificación en cada punto para garantizar rendimiento.',
+    results: '300 puntos LAN certificados, red escalable y organizada, preparada para expansión futura y con documentación completa de infraestructura.',
+    completedDate: '2023-12',
+    duration: '4 semanas',
   },
   {
-    slug: 'escuela-cades',
+    slug: 'vistas-del-rio-apartments',
     featured: false,
-    client: 'Escuela Cades',
-    location: 'Mayagüez',
-    title: 'Seguridad y conectividad para institución educativa',
-    summary: 'Sistema integral de CCTV, Wi-Fi y control de acceso para campus escolar',
-    challenge: 'Institución educativa con múltiples edificios requería actualizar sistema de seguridad obsoleto, mejorar cobertura Wi-Fi para educación digital y controlar acceso de visitantes. Presupuesto ajustado y necesidad de instalación durante receso escolar.',
-    solution: '32 cámaras IP Uniview 2MP en exteriores e interiores, NVR con 30 días de grabación, 12 access points Ruijie Wi-Fi 6 con gestión centralizada, sistema de videoportero en recepción, control de acceso con credenciales RFID en puertas principales. Cableado Cat6 certificado y racks organizados.',
-    results: 'Cobertura de seguridad completa en áreas comunes, Wi-Fi estable para 500+ estudiantes y tablets educativas, control de visitantes digitalizado con registro de entrada/salida. Proyecto completado en 2 semanas durante vacaciones de verano.',
-    technologies: ['Uniview IP', 'Ruijie Wi-Fi 6', 'RFID Access', 'Video Intercom', 'Structured Cabling'],
-    images: [
-      '/portfolio/cades-1.jpg',
-      '/portfolio/cades-2.jpg'
-    ],
-    category: ['CCTV', 'Wi-Fi', 'Access Control', 'Education'],
-    completedDate: '2023-08',
-    projectValue: '$25,000 - $35,000',
-    duration: '2 semanas'
-  }
+    client: 'Vistas del Río Apartments',
+    location: 'Trujillo Alto, PR',
+    title: 'Vistas del Río · Sistema CCTV Residencial 16 Cámaras',
+    category: 'Residencial',
+    summary: 'Instalación de 16 cámaras de seguridad IP para cubrir áreas exteriores, zonas comunes y facilidades internas del complejo residencial. El sistema fue diseñado para ofrecer vigilancia continua 24/7, monitoreo estratégico de puntos críticos y mayor tranquilidad para residentes, visitantes y personal administrativo.',
+    technologies: ['Hikvision IP', 'NVR 16 Canales', 'Visión Nocturna', 'Acceso Remoto', 'Cableado Estructurado'],
+    images: Array.from({ length: 5 }, (_, i) => `/portfolio/vistas-del-rio-apartments/imagen-${i + 1}.jpg`),
+    challenge: 'Complejo residencial con áreas extensas sin cobertura de seguridad adecuada, preocupaciones de residentes sobre seguridad perimetral.',
+    solution: '16 cámaras IP estratégicamente posicionadas cubriendo entradas, estacionamiento, áreas comunes y perímetro con NVR centralizado y acceso remoto.',
+    results: 'Cobertura completa del complejo, mayor sensación de seguridad entre residentes y personal, monitoreo 24/7 con acceso remoto para administración.',
+    completedDate: '2024-04',
+    duration: '3 días',
+  },
 ]
 
-export const categories = [
-  'Todos',
-  'CCTV',
-  'Networking',
-  'Access Control',
-  'Government',
-  'Retail',
-  'Education',
-  'Industrial',
-  'Residential'
-] as const
-
 export const getFeaturedProjects = () => {
-  return portfolioProjects.filter(p => p.featured)
+  return portfolioProjects.filter((p) => p.featured)
 }
 
 export const getProjectBySlug = (slug: string) => {
-  return portfolioProjects.find(p => p.slug === slug)
+  return portfolioProjects.find((p) => p.slug === slug)
 }

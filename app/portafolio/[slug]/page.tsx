@@ -56,7 +56,7 @@ export function generateMetadata({ params }: ProjectDetailPageProps): Metadata {
   return {
     title,
     description,
-    keywords: [project.category, project.client, 'IT Services Puerto Rico'],
+    keywords: `${project.category}, ${project.client}, IT Services Puerto Rico, seguridad Puerto Rico`,
     alternates: {
       canonical: url,
     },
