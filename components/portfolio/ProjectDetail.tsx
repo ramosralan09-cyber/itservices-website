@@ -35,6 +35,10 @@ export function ProjectDetail({ project, relatedProjects }: ProjectDetailProps) 
     setLightboxOpen(true)
   }
 
+  const hideOnError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    ;(e.target as HTMLImageElement).parentElement!.style.display = 'none'
+  }
+
   return (
     <>
       <div className="min-h-screen bg-charcoal">
@@ -58,7 +62,7 @@ export function ProjectDetail({ project, relatedProjects }: ProjectDetailProps) 
               transition={{ duration: 0.5 }}
             >
               <div className="flex flex-wrap items-center gap-3 mb-4">
-                <span className="px-3 py-1 bg-teal-500/20 text-teal-400 text-sm rounded-lg border border-teal-500/30 font-medium">
+                <span className="px-3 py-1 bg-deepBlue/20 text-skyBlue text-sm rounded-lg border border-deepBlue/30 font-medium">
                   {project.category}
                 </span>
                 <span className="flex items-center gap-1 text-gray-400 text-sm">
@@ -67,7 +71,7 @@ export function ProjectDetail({ project, relatedProjects }: ProjectDetailProps) 
                 </span>
               </div>
 
-              <span className="text-teal-400 font-bold text-lg block mb-2">{project.client}</span>
+              <span className="text-skyBlue font-bold text-lg block mb-2">{project.client}</span>
 
               <h1 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
                 {project.title}
@@ -108,19 +112,20 @@ export function ProjectDetail({ project, relatedProjects }: ProjectDetailProps) 
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              {/* Main image */}
+              {/* Main image — object-contain so the full image is visible */}
               <div
-                className="relative h-[400px] rounded-2xl overflow-hidden cursor-zoom-in group bg-gray-800"
+                className="relative w-full bg-navy rounded-2xl overflow-hidden cursor-zoom-in group flex items-center justify-center"
+                style={{ minHeight: '360px', maxHeight: '480px' }}
                 onClick={() => openLightbox(activeImage)}
               >
-                <Image
-                  src={project.images[activeImage]}
+                <img
+                  src={project.images[activeImage] ?? project.coverImage ?? project.images[0]}
                   alt={`${project.title} — imagen ${activeImage + 1}`}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  priority
+                  className="w-full h-full object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+                  style={{ maxHeight: '480px' }}
+                  onError={hideOnError}
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors flex items-center justify-center rounded-2xl">
                   <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg className="w-5 h-5 text-deepBlue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
@@ -129,24 +134,24 @@ export function ProjectDetail({ project, relatedProjects }: ProjectDetailProps) 
                 </div>
               </div>
 
-              {/* Thumbnails row — click swaps main image */}
+              {/* Thumbnails row — click swaps main image; onError hides missing ones */}
               {project.images.length > 1 && (
                 <div className="flex gap-2 mt-3 overflow-x-auto pb-1">
                   {project.images.map((img, i) => (
                     <button
                       key={i}
                       onClick={() => setActiveImage(i)}
-                      className={`relative flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden bg-gray-800 border-2 transition-colors ${
+                      className={`relative flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden bg-navy border-2 transition-colors ${
                         i === activeImage
-                          ? 'border-teal-400'
+                          ? 'border-skyBlue'
                           : 'border-transparent hover:border-gray-600'
                       }`}
                     >
-                      <Image
+                      <img
                         src={img}
                         alt={`Thumbnail ${i + 1}`}
-                        fill
-                        className="object-cover"
+                        className="w-full h-full object-cover"
+                        onError={hideOnError}
                       />
                     </button>
                   ))}
@@ -207,7 +212,7 @@ export function ProjectDetail({ project, relatedProjects }: ProjectDetailProps) 
                 <h2 className="text-2xl font-bold text-white">Resultados</h2>
               </div>
               <div className="bg-gradient-to-r from-green-500/10 to-deepBlue/10 p-8 rounded-2xl border-l-4 border-green-500">
-                <div className="grid md:grid-cols-1 gap-3">
+                <div className="space-y-3">
                   {project.results
                     .split('.')
                     .filter(r => r.trim().length > 0)
@@ -233,7 +238,7 @@ export function ProjectDetail({ project, relatedProjects }: ProjectDetailProps) 
                   <motion.span
                     key={tech}
                     whileHover={{ scale: 1.05 }}
-                    className="px-5 py-2.5 bg-slate text-white rounded-xl border border-gray-700 hover:border-teal-400 transition-colors text-sm"
+                    className="px-5 py-2.5 bg-slate text-white rounded-xl border border-gray-600/50 hover:border-skyBlue transition-colors text-sm"
                   >
                     {tech}
                   </motion.span>

@@ -16,7 +16,7 @@ export function HeroSlideshow() {
   return (
     <>
       {IMAGES.map((src, i) => (
-        <div key={src} className="absolute inset-0 bg-gray-900">
+        <div key={src} className="absolute inset-0 bg-navy">
           <Image
             src={src}
             alt=""
@@ -30,7 +30,7 @@ export function HeroSlideshow() {
         </div>
       ))}
 
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e1a]/95 via-[#0a0e1a]/85 to-[#0a0e1a]/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-charcoal/95 via-charcoal/85 to-charcoal/40 pointer-events-none" />
 
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex gap-2">
         {IMAGES.map((_, i) => (
@@ -38,7 +38,7 @@ export function HeroSlideshow() {
             key={i}
             onClick={() => setActive(i)}
             className={`h-1 rounded-full transition-all duration-500 ${
-              i === active ? 'w-8 bg-teal-400' : 'w-2 bg-white/30 hover:bg-white/50'
+              i === active ? 'w-8 bg-skyBlue' : 'w-2 bg-white/30 hover:bg-white/50'
             }`}
             aria-label={`Ir a imagen ${i + 1}`}
           />
