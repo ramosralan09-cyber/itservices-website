@@ -20,7 +20,7 @@ const PORTFOLIO_ITEMS: GalleryItem[] = [
     binomial: 'Redes & Conectividad',
     href: '/portafolio',
     photo: {
-      url: '/portfolio/ricomini-camuy/portada.jpg',
+      url: '/portfolio/ricomini-camuy/home.png',
       text: 'Infraestructura de redes en Ricomini Camuy',
       pos: 'center',
       by: 'IT Services & Security',
