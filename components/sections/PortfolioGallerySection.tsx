@@ -9,8 +9,9 @@ const PORTFOLIO_ITEMS: GalleryItem[] = [
     binomial: 'Seguridad & CCTV',
     href: '/portafolio',
     photo: {
-      url: '/portfolio/cuartel-policia-cabo-rojo/portada.jpg',
+      url: '/portfolio/cuartel-policia-cabo-rojo/home.png',
       text: 'Proyecto de seguridad en Cuartel Policía Cabo Rojo',
+      pos: 'center',
       by: 'IT Services & Security',
     },
   },
@@ -21,6 +22,7 @@ const PORTFOLIO_ITEMS: GalleryItem[] = [
     photo: {
       url: '/portfolio/ricomini-camuy/portada.jpg',
       text: 'Infraestructura de redes en Ricomini Camuy',
+      pos: 'center',
       by: 'IT Services & Security',
     },
   },
@@ -29,8 +31,9 @@ const PORTFOLIO_ITEMS: GalleryItem[] = [
     binomial: 'Infraestructura IT',
     href: '/portafolio',
     photo: {
-      url: '/portfolio/pr-9-ponce/portada.jpg',
+      url: '/portfolio/pr-9-ponce/home.png',
       text: 'Proyecto IT en PR-9 Ponce',
+      pos: 'center',
       by: 'IT Services & Security',
     },
   },
@@ -39,8 +42,9 @@ const PORTFOLIO_ITEMS: GalleryItem[] = [
     binomial: 'Control de Acceso',
     href: '/portafolio',
     photo: {
-      url: '/portfolio/mayaguez-square-district/portada.jpg',
+      url: '/portfolio/mayaguez-square-district/home.png',
       text: 'Control de acceso en Mayagüez Square District',
+      pos: 'center',
       by: 'IT Services & Security',
     },
   },
@@ -49,8 +53,9 @@ const PORTFOLIO_ITEMS: GalleryItem[] = [
     binomial: 'Cableado Estructurado',
     href: '/portafolio',
     photo: {
-      url: '/portfolio/infosys-aguadilla/portada.jpg',
+      url: '/portfolio/infosys-aguadilla/home.png',
       text: 'Cableado estructurado en InfoSys Aguadilla',
+      pos: 'center',
       by: 'IT Services & Security',
     },
   },
@@ -59,8 +64,9 @@ const PORTFOLIO_ITEMS: GalleryItem[] = [
     binomial: 'CCTV & Seguridad',
     href: '/portafolio',
     photo: {
-      url: '/portfolio/vistas-del-rio-apartments/portada.jpg',
+      url: '/portfolio/vistas-del-rio-apartments/home.png',
       text: 'Seguridad residencial en Vistas del Río',
+      pos: 'center',
       by: 'IT Services & Security',
     },
   },
