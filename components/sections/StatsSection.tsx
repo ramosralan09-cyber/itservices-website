@@ -6,7 +6,7 @@ import { AnimatedCounter } from '@/components/ui/animated-counter'
 const STATS = [
   { value: 120, suffix: '+', label: 'Proyectos Completados' },
   { value: 12,  suffix: '+', label: 'Años de Experiencia' },
-  { value: 78,  suffix: '',  label: 'Municipios Atendidos' },
+  { value: 25,  suffix: '+', label: 'Municipios' },
   { value: 98,  suffix: '%', label: 'Clientes Satisfechos' },
 ]
 
