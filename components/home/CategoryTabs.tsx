@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Network, Shield, Lightbulb, Headphones, ArrowRight, Zap } from 'lucide-react';
-import { BorderBeam } from '@/components/ui/border-beam';
 
 const categories = [
   {
@@ -130,7 +129,6 @@ export function CategoryTabs() {
                     transition-all duration-300 cursor-pointer
                   `}
                 >
-                  <BorderBeam duration={6} lightColor="#0B5FFF" />
                   <Image
                     src={category.image}
                     alt={category.title}
