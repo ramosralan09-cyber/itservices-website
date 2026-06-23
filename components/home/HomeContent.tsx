@@ -1,9 +1,9 @@
 'use client';
 
 import { Hero } from '@/components/home/Hero';
-import { CategoryTabs } from '@/components/home/CategoryTabs';
 import { ScrollColorBackground } from '@/components/shared/ScrollColorBackground';
 import { SummerPromoModal } from '@/components/home/SummerPromoModal';
+import { ServiceCards } from '@/components/sections/ServiceCards';
 import { StatsSection } from '@/components/sections/StatsSection';
 import { LogoCloud } from '@/components/ui/logo-cloud';
 import { ProcessTimeline } from '@/components/sections/ProcessTimeline';
@@ -24,7 +24,7 @@ export function HomeContent() {
       <ScrollColorBackground sections={colorSections}>
         <div className="relative">
           <Hero />
-          <CategoryTabs />
+          <ServiceCards />
         </div>
       </ScrollColorBackground>
       <StatsSection />
