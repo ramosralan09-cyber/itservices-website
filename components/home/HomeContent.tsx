@@ -6,7 +6,7 @@ import { SummerPromoModal } from '@/components/home/SummerPromoModal';
 import { ServiceCards } from '@/components/sections/ServiceCards';
 import { StatsSection } from '@/components/sections/StatsSection';
 import { LogoCloud } from '@/components/ui/logo-cloud';
-import { ProcessTimeline } from '@/components/sections/ProcessTimeline';
+import { PortfolioGallerySection } from '@/components/sections/PortfolioGallerySection';
 
 export function HomeContent() {
   const colorSections = [
@@ -29,7 +29,7 @@ export function HomeContent() {
       </ScrollColorBackground>
       <StatsSection />
       <LogoCloud />
-      <ProcessTimeline />
+      <PortfolioGallerySection />
     </>
   );
 }
