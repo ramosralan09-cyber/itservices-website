@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin, ArrowRight } from 'lucide-react'
 import type { PortfolioProject } from '@/data/portfolio'
-import { BorderBeam } from '@/components/ui/border-beam'
+
 
 interface PortfolioCardProps {
   project: PortfolioProject
@@ -25,7 +25,7 @@ export function PortfolioCard({ project, index }: PortfolioCardProps) {
     >
       <Link href={`/portafolio/${project.slug}`} className="block h-full">
         <div className="group relative h-full bg-slate border border-gray-600/40 rounded-xl overflow-hidden hover:border-deepBlue/60 hover:-translate-y-1 transition-all duration-300 flex flex-col shadow-card hover:shadow-card-hover">
-          <BorderBeam duration={7} lightColor="#43A0FF" />
+
 
           {/* Cover image */}
           <div className="relative h-52 bg-navy flex-shrink-0">
