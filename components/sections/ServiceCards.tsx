@@ -46,7 +46,7 @@ const SERVICES = [
 
 export function ServiceCards() {
   return (
-    <section className="py-16 px-4 md:px-6 max-w-7xl mx-auto">
+    <section id="servicios" className="py-16 px-4 md:px-6 max-w-7xl mx-auto">
       {/* Heading */}
       <div className="text-center mb-10">
         <span className="text-xs uppercase tracking-widest text-gray-400 border border-white/10 rounded-full px-4 py-1.5 inline-flex items-center gap-1.5 mb-4">

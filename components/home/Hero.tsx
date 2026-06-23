@@ -67,15 +67,15 @@ export function Hero() {
               <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
             </motion.a>
 
-            <motion.a
-              href="/servicios"
+            <motion.button
+              onClick={() => document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })}
               className="group w-full sm:w-auto px-8 py-4 bg-slate/80 backdrop-blur-sm border-2 border-gray-600 text-white hover:border-blue-500 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
             >
               <span>Explorar servicios</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </motion.a>
+            </motion.button>
           </motion.div>
 
           <motion.div
