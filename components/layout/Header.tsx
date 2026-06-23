@@ -11,8 +11,8 @@ import { CommandPalette } from '@/components/shared/CommandPalette';
 const navItems = [
   { name: 'Redes', href: '/servicios/redes' },
   { name: 'Seguridad', href: '/servicios/seguridad' },
-  { name: 'Consultoría', href: '/servicios/consultoria' },
-  { name: 'Soporte', href: '/servicios/soporte' },
+  { name: 'Portafolio', href: '/portafolio' },
+  { name: 'Contacto', href: '/contacto' },
 ];
 
 const sidebarSections = [
