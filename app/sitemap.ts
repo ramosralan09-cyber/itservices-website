@@ -53,13 +53,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/portafolio/policia-cabo-rojo`,
+      url: `${baseUrl}/portafolio/cuartel-policia-cabo-rojo`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/portafolio/ricomini-mayaguez`,
+      url: `${baseUrl}/portafolio/ricomini-camuy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/portafolio/pr-9-ponce`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/portafolio/mayaguez-square-district`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
@@ -71,7 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/portafolio/escuela-cades`,
+      url: `${baseUrl}/portafolio/vistas-del-rio-apartments`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
