@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import CoberturaClient from './CoberturaClient';
 
 export const metadata: Metadata = {
-  title:
-    'Cobertura en Puerto Rico | Cámaras de Seguridad, Redes y Control de Acceso | IT Services & Security',
+  title: 'Cobertura en Puerto Rico | IT Services & Security',
   description:
     'Instalación profesional de cámaras de seguridad, redes empresariales, control de acceso y sistemas de seguridad en toda Puerto Rico. Cobertura en Mayagüez, Aguadilla, San Juan, Ponce y más municipios.',
   keywords: [
