@@ -35,7 +35,7 @@ export default function LinksPage() {
 
         {/* Encabezado */}
         <div className="flex flex-col items-center text-center gap-4 pt-4">
-          <div className="relative w-40 h-24">
+          <div className="relative w-52 h-32">
             <Image
               src={company.logoPath}
               alt={company.name}
@@ -60,8 +60,8 @@ export default function LinksPage() {
 
         {/* Botones */}
         <div className="w-full flex flex-col gap-3">
-          {links.map((link, i) => (
-            <LinkButton key={link.id} link={link} index={i} />
+          {links.map((link) => (
+            <LinkButton key={link.id} item={link} />
           ))}
         </div>
 

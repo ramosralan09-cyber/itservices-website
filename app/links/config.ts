@@ -16,13 +16,7 @@ export const LINKS_PAGE_CONFIG = {
       primary: true,
       external: true,
       analyticsEvent: 'linkhub_whatsapp_click',
-      preview: {
-        bg: 'from-[#075E54] to-[#128C7E]',
-        title: 'WhatsApp Business',
-        description: 'Escríbenos directamente. Te respondemos en menos de 24 horas con tu cotización personalizada.',
-        badge: '💬 Chat directo',
-        darkText: false,
-      },
+      screenshotUrl: 'https://api.microlink.io?url=https%3A%2F%2Fwa.me%2F19392842551&screenshot=true&meta=false&embed=screenshot.url',
     },
     {
       id: 'website',
@@ -33,13 +27,7 @@ export const LINKS_PAGE_CONFIG = {
       primary: false,
       external: false,
       analyticsEvent: 'linkhub_website_click',
-      preview: {
-        bg: 'from-blue-900 to-black',
-        title: 'itservicespr.com',
-        description: 'Conoce todos nuestros servicios: cámaras, redes, control de acceso y soporte técnico para negocios en PR.',
-        badge: '🌐 Website oficial',
-        darkText: false,
-      },
+      screenshotUrl: 'https://api.microlink.io?url=https%3A%2F%2Fwww.itservicespr.com%2Fportafolio&screenshot=true&meta=false&embed=screenshot.url',
     },
     {
       id: 'instagram',
@@ -50,30 +38,18 @@ export const LINKS_PAGE_CONFIG = {
       primary: false,
       external: true,
       analyticsEvent: 'linkhub_instagram_click',
-      preview: {
-        bg: 'from-purple-600 via-pink-500 to-orange-400',
-        title: '@itservicespr',
-        description: 'Proyectos reales, instalaciones profesionales y consejos de seguridad para tu negocio.',
-        badge: '📸 Instagram',
-        darkText: false,
-      },
+      screenshotUrl: 'https://api.microlink.io?url=https%3A%2F%2Fwww.instagram.com%2Fitservicespr%2F&screenshot=true&meta=false&embed=screenshot.url',
     },
     {
       id: 'facebook',
       label: 'Síguenos en Facebook',
       sublabel: 'IT Services & Security',
-      url: 'https://www.facebook.com/share/1EThrPqd8w/',
+      url: 'https://www.facebook.com/share/18mve48BQE/',
       icon: 'facebook',
       primary: false,
       external: true,
       analyticsEvent: 'linkhub_facebook_click',
-      preview: {
-        bg: 'from-blue-700 to-blue-900',
-        title: 'IT Services & Security',
-        description: 'Actualizaciones, proyectos completados y noticias del sector en nuestra página de Facebook.',
-        badge: '👍 Facebook',
-        darkText: false,
-      },
+      screenshotUrl: 'https://api.microlink.io?url=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61567086793252&screenshot=true&meta=false&embed=screenshot.url',
     },
     {
       id: 'projects',
@@ -84,33 +60,20 @@ export const LINKS_PAGE_CONFIG = {
       primary: false,
       external: false,
       analyticsEvent: 'linkhub_projects_click',
-      preview: {
-        bg: 'from-gray-800 to-gray-950',
-        title: 'Portafolio de proyectos',
-        description: 'Más de 120 proyectos completados: cuarteles de policía, supermercados, edificios residenciales e instituciones.',
-        badge: '🏗️ 120+ proyectos',
-        darkText: false,
-      },
+      screenshotUrl: 'https://api.microlink.io?url=https%3A%2F%2Fwww.itservicespr.com%2Fportafolio&screenshot=true&meta=false&embed=screenshot.url',
     },
     {
       id: 'review',
       label: 'Déjanos una reseña en Google',
       sublabel: 'Tu opinión nos ayuda mucho',
-      url: 'https://g.page/r/CfNReRiQQQTnEAI/review',
+      url: 'https://g.page/r/CfNReRiQQTnEAI/review',
       icon: 'star',
       primary: false,
       external: true,
       analyticsEvent: 'linkhub_google_review_click',
-      preview: {
-        bg: 'from-gray-100 to-white',
-        title: 'Google Reviews',
-        description: '¿Trabajamos juntos? Tu reseña en Google ayuda a otros negocios a encontrarnos y confiar en nosotros.',
-        badge: '⭐ Dejar reseña',
-        darkText: true,
-      },
+      screenshotUrl: 'https://api.microlink.io?url=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3DIT%2BServices%2BSecurity%2BPuerto%2BRico&screenshot=true&meta=false&embed=screenshot.url',
     },
   ],
-}
+} as const
 
-export type LinkItem = (typeof LINKS_PAGE_CONFIG.links)[0]
-export type PreviewData = (typeof LINKS_PAGE_CONFIG.links)[0]['preview']
+export type LinkItem = (typeof LINKS_PAGE_CONFIG.links)[number]
