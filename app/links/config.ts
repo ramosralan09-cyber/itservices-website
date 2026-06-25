@@ -1,0 +1,73 @@
+export const LINKS_PAGE_CONFIG = {
+  company: {
+    name: 'IT Services & Security',
+    tagline: 'Seguridad y tecnología para negocios en Puerto Rico',
+    subtagline: 'Trabajamos toda la isla',
+    logoPath: '/images/logos/itss-logo.png',
+  },
+
+  links: [
+    {
+      id: 'whatsapp',
+      label: 'Cotiza por WhatsApp',
+      sublabel: 'Respuesta en menos de 24h',
+      url: 'https://wa.me/19392842551?text=Hola%2C%20me%20interesa%20una%20cotización%20para%20mis%20servicios%20de%20seguridad.',
+      icon: 'whatsapp',
+      primary: true,
+      external: true,
+      analyticsEvent: 'linkhub_whatsapp_click',
+    },
+    {
+      id: 'website',
+      label: 'Visita nuestro website',
+      sublabel: 'itservicespr.com',
+      url: 'https://itservicespr.com',
+      icon: 'globe',
+      primary: false,
+      external: false,
+      analyticsEvent: 'linkhub_website_click',
+    },
+    {
+      id: 'instagram',
+      label: 'Síguenos en Instagram',
+      sublabel: '@itservicespr',
+      url: 'https://www.instagram.com/itservicespr',
+      icon: 'instagram',
+      primary: false,
+      external: true,
+      analyticsEvent: 'linkhub_instagram_click',
+    },
+    {
+      id: 'facebook',
+      label: 'Síguenos en Facebook',
+      sublabel: 'IT Services & Security',
+      url: 'https://www.facebook.com/share/1EThrPqd8w/',
+      icon: 'facebook',
+      primary: false,
+      external: true,
+      analyticsEvent: 'linkhub_facebook_click',
+    },
+    {
+      id: 'projects',
+      label: 'Ver nuestros proyectos',
+      sublabel: '120+ proyectos completados en PR',
+      url: 'https://itservicespr.com/portafolio',
+      icon: 'briefcase',
+      primary: false,
+      external: false,
+      analyticsEvent: 'linkhub_projects_click',
+    },
+    {
+      id: 'review',
+      label: 'Déjanos una reseña en Google',
+      sublabel: 'Tu opinión nos ayuda mucho',
+      url: 'https://search.google.com/local/writereview?placeid=REEMPLAZAR_CON_PLACE_ID',
+      icon: 'star',
+      primary: false,
+      external: true,
+      analyticsEvent: 'linkhub_google_review_click',
+    },
+  ],
+}
+
+export type LinkItem = (typeof LINKS_PAGE_CONFIG.links)[0]

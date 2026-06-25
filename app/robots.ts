@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/dashboard/', '/auth/', '/carrito/', '/api/'],
+        disallow: ['/dashboard/', '/auth/', '/carrito/', '/api/', '/links'],
       },
     ],
     sitemap: 'https://itservicespr.com/sitemap.xml',
