@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Phone } from 'lucide-react'
 import { trackConversion } from '@/lib/analytics'
@@ -15,6 +15,8 @@ const QUICK_MESSAGES = [
 
 const WA_NUMBER = '19392842551'
 const CALL_NUMBER = 'tel:+19392684351'
+const VIDEO_IDLE = '/mascot/inicio.mp4'
+const VIDEO_CLICK = '/mascot/click.mp4'
 
 function trackWA(label: string) {
   trackConversion('whatsapp_click', 0)
@@ -28,18 +30,43 @@ function trackWA(label: string) {
 export function WhatsAppMascot() {
   const [open, setOpen] = useState(false)
   const [showBubble, setShowBubble] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const timer = setTimeout(() => setShowBubble(true), 3000)
     return () => clearTimeout(timer)
   }, [])
 
-  useEffect(() => {
-    if (open) setShowBubble(false)
-  }, [open])
+  const playIdle = () => {
+    const video = videoRef.current
+    if (!video) return
+    video.src = VIDEO_IDLE
+    video.loop = true
+    video.play().catch(() => {})
+  }
+
+  const playClick = () => {
+    const video = videoRef.current
+    if (!video) return
+    video.src = VIDEO_CLICK
+    video.loop = false
+    video.onended = () => playIdle()
+    video.play().catch(() => {})
+  }
+
+  const handleMascotClick = () => {
+    const next = !open
+    setOpen(next)
+    setShowBubble(false)
+    if (next) {
+      playClick()
+    } else {
+      playIdle()
+    }
+  }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-3">
 
       {/* Panel de mensajes rápidos */}
       <AnimatePresence>
@@ -58,7 +85,7 @@ export function WhatsAppMascot() {
                 <span className="text-white text-sm font-medium">IT Services &amp; Security</span>
               </div>
               <button
-                onClick={() => setOpen(false)}
+                onClick={() => { setOpen(false); playIdle() }}
                 className="text-gray-500 hover:text-white transition-colors"
                 aria-label="Cerrar"
               >
@@ -89,7 +116,7 @@ export function WhatsAppMascot() {
               ))}
             </div>
 
-            {/* Footer — llamada directa */}
+            {/* Llamada directa */}
             <div className="px-4 pb-4 pt-1 border-t border-white/5">
               <a
                 href={CALL_NUMBER}
@@ -111,68 +138,36 @@ export function WhatsAppMascot() {
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 10, scale: 0.9 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative bg-white text-gray-900 text-sm font-medium px-4 py-2 rounded-2xl rounded-br-sm shadow-lg cursor-pointer select-none"
-            onClick={() => setOpen(true)}
+            className="relative bg-white text-gray-900 text-sm font-medium px-4 py-2.5 rounded-2xl rounded-br-sm shadow-lg cursor-pointer select-none"
+            onClick={handleMascotClick}
           >
             ¿Cómo te puedo ayudar?
-            <div className="absolute -bottom-2 right-4 w-0 h-0 border-l-8 border-r-0 border-t-8 border-l-transparent border-t-white" />
+            <div className="absolute -bottom-2 right-6 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white" />
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Botón mascota */}
+      {/* Mascota — video 9:16 */}
       <motion.button
-        onClick={() => setOpen(!open)}
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.95 }}
-        className="relative w-16 h-16 rounded-full shadow-2xl flex items-center justify-center overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)' }}
+        onClick={handleMascotClick}
+        whileHover={{ scale: 1.04 }}
+        whileTap={{ scale: 0.97 }}
+        className="relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer bg-transparent border-0 p-0"
+        style={{ width: '80px', height: '142px' }}
         aria-label="Abrir chat de WhatsApp"
       >
-        <AnimatePresence mode="wait">
-          {open ? (
-            <motion.div
-              key="close"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.15 }}
-            >
-              <X className="w-7 h-7 text-white" />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="mascot"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.15 }}
-            >
-              {/* Robot de seguridad SVG */}
-              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Cuerpo */}
-                <rect x="11" y="22" width="14" height="10" rx="3" fill="white" fillOpacity="0.9"/>
-                {/* Cabeza */}
-                <circle cx="18" cy="16" r="8" fill="white" fillOpacity="0.95"/>
-                {/* Casco / visera */}
-                <path d="M10 16C10 11.58 13.58 8 18 8C22.42 8 26 11.58 26 16" stroke="white" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-                <rect x="9" y="14.5" width="18" height="3" rx="1.5" fill="white"/>
-                {/* Ojos */}
-                <circle cx="15" cy="17" r="1.5" fill="#128C7E"/>
-                <circle cx="21" cy="17" r="1.5" fill="#128C7E"/>
-                {/* Sonrisa */}
-                <path d="M15 20C15 20 16.5 21.5 18 21.5C19.5 21.5 21 20 21 20" stroke="#128C7E" strokeWidth="1.2" strokeLinecap="round"/>
-                {/* Brazos */}
-                <rect x="6" y="23" width="5" height="2.5" rx="1.25" fill="white" fillOpacity="0.9"/>
-                <rect x="25" y="23" width="5" height="2.5" rx="1.25" fill="white" fillOpacity="0.9"/>
-              </svg>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Dot de notificación */}
+        <video
+          ref={videoRef}
+          src={VIDEO_IDLE}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+          style={{ display: 'block' }}
+        />
         {!open && (
-          <span className="absolute top-1 right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-[#25D366] animate-pulse" />
+          <span className="absolute top-2 right-2 w-3 h-3 bg-green-500 rounded-full border-2 border-black/30 animate-pulse" />
         )}
       </motion.button>
     </div>
