@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { User, ShoppingCart, Menu, X, ChevronRight, Facebook, Instagram, Phone, MessageCircle } from 'lucide-react';
+import { User, ShoppingCart, Menu, X, ChevronRight, Facebook, Instagram } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import { CommandPalette } from '@/components/shared/CommandPalette';
@@ -117,29 +117,7 @@ export function Header() {
             </nav>
 
             <div className="flex items-center gap-4">
-              {/* Números de contacto — solo desktop */}
-              <div className={`hidden lg:flex items-center gap-4 text-sm transition-opacity duration-300 ${
-                sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
-              }`}>
-                <a
-                  href="tel:+19392684351"
-                  className="flex items-center gap-1.5 text-gray-400 hover:text-white transition-colors"
-                >
-                  <Phone className="w-3.5 h-3.5" />
-                  (939) 268-4351
-                </a>
-                <a
-                  href={`https://wa.me/19392842551`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-green-500 hover:text-green-400 transition-colors"
-                >
-                  <MessageCircle className="w-3.5 h-3.5" />
-                  WhatsApp
-                </a>
-              </div>
-
-              <div className={`transition-opacity duration-300 ${
+<div className={`transition-opacity duration-300 ${
                 sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
               }`}>
                 <CommandPalette />
