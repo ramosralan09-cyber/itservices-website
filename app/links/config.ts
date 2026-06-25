@@ -1,9 +1,9 @@
 export const LINKS_PAGE_CONFIG = {
   company: {
     name: 'IT Services & Security',
-    tagline: 'Seguridad y tecnología para negocios en Puerto Rico',
-    subtagline: 'Trabajamos toda la isla',
     logoPath: '/images/logos/itss-logo.png',
+    tagline: 'Seguridad y tecnología para negocios en Puerto Rico',
+    subtagline: 'Residencial y Comercial · Trabajamos toda la isla',
   },
 
   links: [
@@ -16,6 +16,13 @@ export const LINKS_PAGE_CONFIG = {
       primary: true,
       external: true,
       analyticsEvent: 'linkhub_whatsapp_click',
+      preview: {
+        bg: 'from-[#075E54] to-[#128C7E]',
+        title: 'WhatsApp Business',
+        description: 'Escríbenos directamente. Te respondemos en menos de 24 horas con tu cotización personalizada.',
+        badge: '💬 Chat directo',
+        darkText: false,
+      },
     },
     {
       id: 'website',
@@ -26,6 +33,13 @@ export const LINKS_PAGE_CONFIG = {
       primary: false,
       external: false,
       analyticsEvent: 'linkhub_website_click',
+      preview: {
+        bg: 'from-blue-900 to-black',
+        title: 'itservicespr.com',
+        description: 'Conoce todos nuestros servicios: cámaras, redes, control de acceso y soporte técnico para negocios en PR.',
+        badge: '🌐 Website oficial',
+        darkText: false,
+      },
     },
     {
       id: 'instagram',
@@ -36,6 +50,13 @@ export const LINKS_PAGE_CONFIG = {
       primary: false,
       external: true,
       analyticsEvent: 'linkhub_instagram_click',
+      preview: {
+        bg: 'from-purple-600 via-pink-500 to-orange-400',
+        title: '@itservicespr',
+        description: 'Proyectos reales, instalaciones profesionales y consejos de seguridad para tu negocio.',
+        badge: '📸 Instagram',
+        darkText: false,
+      },
     },
     {
       id: 'facebook',
@@ -46,6 +67,13 @@ export const LINKS_PAGE_CONFIG = {
       primary: false,
       external: true,
       analyticsEvent: 'linkhub_facebook_click',
+      preview: {
+        bg: 'from-blue-700 to-blue-900',
+        title: 'IT Services & Security',
+        description: 'Actualizaciones, proyectos completados y noticias del sector en nuestra página de Facebook.',
+        badge: '👍 Facebook',
+        darkText: false,
+      },
     },
     {
       id: 'projects',
@@ -56,18 +84,33 @@ export const LINKS_PAGE_CONFIG = {
       primary: false,
       external: false,
       analyticsEvent: 'linkhub_projects_click',
+      preview: {
+        bg: 'from-gray-800 to-gray-950',
+        title: 'Portafolio de proyectos',
+        description: 'Más de 120 proyectos completados: cuarteles de policía, supermercados, edificios residenciales e instituciones.',
+        badge: '🏗️ 120+ proyectos',
+        darkText: false,
+      },
     },
     {
       id: 'review',
       label: 'Déjanos una reseña en Google',
       sublabel: 'Tu opinión nos ayuda mucho',
-      url: 'https://search.google.com/local/writereview?placeid=REEMPLAZAR_CON_PLACE_ID',
+      url: 'https://g.page/r/CfNReRiQQQTnEAI/review',
       icon: 'star',
       primary: false,
       external: true,
       analyticsEvent: 'linkhub_google_review_click',
+      preview: {
+        bg: 'from-gray-100 to-white',
+        title: 'Google Reviews',
+        description: '¿Trabajamos juntos? Tu reseña en Google ayuda a otros negocios a encontrarnos y confiar en nosotros.',
+        badge: '⭐ Dejar reseña',
+        darkText: true,
+      },
     },
   ],
 }
 
 export type LinkItem = (typeof LINKS_PAGE_CONFIG.links)[0]
+export type PreviewData = (typeof LINKS_PAGE_CONFIG.links)[0]['preview']

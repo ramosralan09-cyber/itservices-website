@@ -34,8 +34,8 @@ export default function LinksPage() {
       <div className="relative w-full max-w-sm mx-auto flex flex-col items-center gap-6">
 
         {/* Encabezado */}
-        <div className="flex flex-col items-center text-center gap-3 pt-4">
-          <div className="w-20 h-20 relative">
+        <div className="flex flex-col items-center text-center gap-4 pt-4">
+          <div className="relative w-40 h-24">
             <Image
               src={company.logoPath}
               alt={company.name}
@@ -45,9 +45,14 @@ export default function LinksPage() {
             />
           </div>
           <div>
-            <h1 className="text-white font-bold text-xl tracking-tight">{company.name}</h1>
-            <p className="text-gray-400 text-sm mt-1 leading-relaxed">{company.tagline}</p>
-            <p className="text-gray-600 text-xs mt-1">{company.subtagline}</p>
+            <p className="text-gray-300 text-sm leading-relaxed max-w-[260px]">
+              {company.tagline}
+            </p>
+            <p className="text-gray-500 text-xs mt-2 flex items-center justify-center gap-1.5">
+              <span className="inline-block w-1 h-1 rounded-full bg-blue-500" />
+              {company.subtagline}
+              <span className="inline-block w-1 h-1 rounded-full bg-blue-500" />
+            </p>
           </div>
         </div>
 

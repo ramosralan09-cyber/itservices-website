@@ -1,6 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, Globe, Briefcase } from 'lucide-react'
 import type { LinkItem } from './config'
 
@@ -43,54 +44,143 @@ function getIcon(iconName: string) {
   }
 }
 
+function PreviewCard({
+  preview,
+  onNavigate,
+  showButton,
+}: {
+  preview: NonNullable<LinkItem['preview']>
+  onNavigate: () => void
+  showButton: boolean
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 8, scale: 0.96 }}
+      transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+      className="absolute z-50 w-72 rounded-2xl overflow-hidden shadow-2xl border border-white/10 bottom-[calc(100%+8px)] left-1/2 -translate-x-1/2"
+    >
+      <div className={`bg-gradient-to-br ${preview.bg} p-5`}>
+        <span className={`text-xs font-medium px-2 py-1 rounded-full ${preview.darkText ? 'text-gray-700 bg-black/10' : 'text-white/80 bg-black/20'}`}>
+          {preview.badge}
+        </span>
+        <h3 className={`font-bold text-lg mt-3 ${preview.darkText ? 'text-gray-900' : 'text-white'}`}>
+          {preview.title}
+        </h3>
+        <p className={`text-sm mt-1 leading-relaxed ${preview.darkText ? 'text-gray-600' : 'text-white/70'}`}>
+          {preview.description}
+        </p>
+        {showButton && (
+          <button
+            onClick={onNavigate}
+            className="mt-4 w-full py-2.5 rounded-xl bg-white/20 hover:bg-white/30 text-white text-sm font-medium transition-colors"
+          >
+            Ir ahora →
+          </button>
+        )}
+      </div>
+      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white/10" />
+    </motion.div>
+  )
+}
+
 interface LinkButtonProps {
   link: LinkItem
   index: number
 }
 
 export function LinkButton({ link, index }: LinkButtonProps) {
-  const handleClick = () => {
+  const [showPreview, setShowPreview] = useState(false)
+  const [mobileTap, setMobileTap] = useState(false)
+  const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const navigate = () => {
     if (typeof window !== 'undefined') {
       const w = window as any
       if (w.gtag) w.gtag('event', link.analyticsEvent, { event_category: 'linkhub', event_label: link.label })
       if (w.fbq)  w.fbq('trackCustom', link.analyticsEvent)
     }
+    window.open(link.url, link.external ? '_blank' : '_self')
+  }
+
+  const handleMouseEnter = () => {
+    if (!link.preview) return
+    hoverTimer.current = setTimeout(() => setShowPreview(true), 200)
+  }
+
+  const handleMouseLeave = () => {
+    if (hoverTimer.current) clearTimeout(hoverTimer.current)
+    setShowPreview(false)
+    setMobileTap(false)
+  }
+
+  const handleClick = (e: React.MouseEvent) => {
+    const isTouch = window.matchMedia('(hover: none)').matches
+
+    if (!isTouch) {
+      navigate()
+      return
+    }
+
+    // Mobile: primer tap → preview, segundo tap → navegar
+    if (!showPreview && link.preview) {
+      e.preventDefault()
+      setShowPreview(true)
+      setMobileTap(true)
+    } else {
+      navigate()
+    }
   }
 
   return (
-    <motion.a
-      href={link.url}
-      target={link.external ? '_blank' : '_self'}
-      rel={link.external ? 'noopener noreferrer' : undefined}
-      onClick={handleClick}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      whileHover={{ scale: 1.02, y: -2 }}
-      whileTap={{ scale: 0.98 }}
-      className={`
-        relative w-full flex items-center gap-4 px-5 py-4 rounded-2xl
-        border transition-all duration-300 group
-        ${link.primary
-          ? 'bg-[#25D366] border-[#25D366] text-white shadow-lg shadow-[#25D366]/20 hover:shadow-xl hover:shadow-[#25D366]/30'
-          : 'bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-white/20'
-        }
-      `}
-    >
-      <div className={`shrink-0 w-10 h-10 rounded-xl flex items-center justify-center ${link.primary ? 'bg-white/20' : 'bg-white/10'}`}>
-        {getIcon(link.icon)}
-      </div>
-
-      <div className="flex-1 text-left">
-        <div className="font-semibold text-sm leading-tight text-white">{link.label}</div>
-        {link.sublabel && (
-          <div className={`text-xs mt-0.5 ${link.primary ? 'text-white/70' : 'text-gray-400'}`}>
-            {link.sublabel}
-          </div>
+    <div className="relative w-full">
+      <AnimatePresence>
+        {showPreview && link.preview && (
+          <PreviewCard
+            preview={link.preview}
+            onNavigate={() => { setShowPreview(false); navigate() }}
+            showButton={mobileTap}
+          />
         )}
-      </div>
+      </AnimatePresence>
 
-      <ExternalLink className={`shrink-0 w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 ${link.primary ? 'text-white' : 'text-gray-400'}`} />
-    </motion.a>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: index * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        whileHover={{ scale: 1.02, y: -1 }}
+        whileTap={{ scale: 0.98 }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
+        role="link"
+        tabIndex={0}
+        aria-label={link.label}
+        className={`
+          relative w-full flex items-center gap-4 px-5 py-4 rounded-2xl
+          border transition-all duration-300 group cursor-pointer select-none
+          ${link.primary
+            ? 'bg-[#25D366] border-[#25D366] text-white shadow-lg shadow-[#25D366]/20 hover:shadow-xl hover:shadow-[#25D366]/30'
+            : 'bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-white/20'
+          }
+        `}
+      >
+        <div className={`shrink-0 w-10 h-10 rounded-xl flex items-center justify-center ${link.primary ? 'bg-white/20' : 'bg-white/10'}`}>
+          {getIcon(link.icon)}
+        </div>
+
+        <div className="flex-1 text-left">
+          <div className="font-semibold text-sm leading-tight text-white">{link.label}</div>
+          {link.sublabel && (
+            <div className={`text-xs mt-0.5 ${link.primary ? 'text-white/70' : 'text-gray-400'}`}>
+              {link.sublabel}
+            </div>
+          )}
+        </div>
+
+        <ExternalLink className={`shrink-0 w-4 h-4 opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 ${link.primary ? 'text-white' : 'text-gray-400'}`} />
+      </motion.div>
+    </div>
   )
 }
