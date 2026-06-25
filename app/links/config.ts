@@ -66,7 +66,7 @@ export const LINKS_PAGE_CONFIG = {
       id: 'review',
       label: 'Déjanos una reseña en Google',
       sublabel: 'Tu opinión nos ayuda mucho',
-      url: 'https://g.page/r/CfNReRiQQTnEAI/review',
+      url: 'https://search.google.com/local/writereview?placeid=ChIJP84L3_KxSiIR81F5GJBBBOc',
       icon: 'star',
       primary: false,
       external: true,
