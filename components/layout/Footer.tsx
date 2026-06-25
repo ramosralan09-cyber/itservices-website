@@ -257,18 +257,20 @@ export function Footer() {
                 <p className="text-white font-medium text-sm mb-3">Contacto Directo</p>
                 <div className="space-y-2">
                   <a
-                    href="https://wa.me/19392842551"
-                    className="flex items-center gap-2 text-gray-400 hover:text-green-400 transition-colors text-sm"
-                  >
-                    <Phone className="w-4 h-4" />
-                    <span>(939) 284-2551</span>
-                  </a>
-                  <a
-                    href="tel:+17876193432"
+                    href="tel:+19392684351"
                     className="flex items-center gap-2 text-gray-400 hover:text-skyBlue transition-colors text-sm"
                   >
                     <Phone className="w-4 h-4" />
-                    <span>(787) 619-3432</span>
+                    <span>(939) 268-4351 — Llamadas</span>
+                  </a>
+                  <a
+                    href="https://wa.me/19392842551"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-400 hover:text-green-400 transition-colors text-sm"
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>(939) 284-2551 — WhatsApp</span>
                   </a>
                   <a
                     href="mailto:itservice.pr4u@gmail.com"

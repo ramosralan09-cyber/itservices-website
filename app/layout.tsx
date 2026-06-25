@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { WhatsAppButton } from '@/components/shared/WhatsAppButton';
+import { WhatsAppMascot } from '@/components/ui/whatsapp-mascot';
 import CookieConsent from '@/components/shared/CookieConsent';
 import { Toaster } from '@/components/ui/toaster';
 import StructuredData from '@/components/shared/StructuredData';
@@ -173,7 +173,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        <WhatsAppButton />
+        <WhatsAppMascot />
         <CookieConsent />
         <Toaster />
       </body>

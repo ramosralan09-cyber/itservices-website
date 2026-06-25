@@ -14,13 +14,23 @@ export default function StructuredData() {
       postalCode: '00680',
       addressCountry: 'US',
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+1-939-284-2551',
-      contactType: 'customer service',
-      areaServed: 'PR',
-      availableLanguage: ['Spanish', 'English'],
-    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: '+1-939-268-4351',
+        contactType: 'customer service',
+        areaServed: 'PR',
+        availableLanguage: ['Spanish', 'English'],
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: '+1-939-284-2551',
+        contactType: 'customer service',
+        areaServed: 'PR',
+        availableLanguage: ['Spanish'],
+        description: 'WhatsApp',
+      },
+    ],
     sameAs: [
       'https://www.facebook.com/share/1EThrPqd8w/',
       'https://www.instagram.com/itservicespr',

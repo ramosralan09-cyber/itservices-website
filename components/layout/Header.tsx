@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { User, ShoppingCart, Menu, X, ChevronRight, Facebook, Instagram } from 'lucide-react';
+import { User, ShoppingCart, Menu, X, ChevronRight, Facebook, Instagram, Phone, MessageCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import { CommandPalette } from '@/components/shared/CommandPalette';
@@ -117,6 +117,28 @@ export function Header() {
             </nav>
 
             <div className="flex items-center gap-4">
+              {/* Números de contacto — solo desktop */}
+              <div className={`hidden lg:flex items-center gap-4 text-sm transition-opacity duration-300 ${
+                sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
+              }`}>
+                <a
+                  href="tel:+19392684351"
+                  className="flex items-center gap-1.5 text-gray-400 hover:text-white transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  (939) 268-4351
+                </a>
+                <a
+                  href={`https://wa.me/19392842551`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-green-500 hover:text-green-400 transition-colors"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  WhatsApp
+                </a>
+              </div>
+
               <div className={`transition-opacity duration-300 ${
                 sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
               }`}>
@@ -247,23 +269,23 @@ export function Header() {
                   </h3>
                   <div className="space-y-3">
                     <a
-                      href="tel:+17879392684"
+                      href="tel:+19392684351"
                       className="flex items-center gap-3 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
                     >
                       <div>
                         <div className="text-xs text-blue-200">Llámanos</div>
-                        <div className="font-semibold">(787) 939-2684</div>
+                        <div className="font-semibold">(939) 268-4351</div>
                       </div>
                     </a>
                     <a
-                      href="https://wa.me/17879392684"
+                      href="https://wa.me/19392842551"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 p-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
                     >
                       <div>
                         <div className="text-xs text-green-200">WhatsApp</div>
-                        <div className="font-semibold">Chatea con nosotros</div>
+                        <div className="font-semibold">(939) 284-2551</div>
                       </div>
                     </a>
                   </div>
